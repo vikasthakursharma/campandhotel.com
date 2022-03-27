@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class AdminGuard
+class ActiveLogin
 {
     /**
      * Handle an incoming request.
@@ -17,9 +17,9 @@ class AdminGuard
     public function handle(Request $request, Closure $next)
     {
         if(session('user')) {
-            return $next($request);
+            return redirect('/admin/home');
         } else {
-            return redirect('/not-access');
+            return $next($request);
         }
         
     }

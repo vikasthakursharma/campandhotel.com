@@ -43,7 +43,7 @@ class AuthController extends Controller
             }else{
 
                 $request->session()->flash('error','Please enter valid password');
-                return redirect('/admin/auth/login');
+                return redirect('/admin');
             }
 
         }else{
@@ -54,7 +54,7 @@ class AuthController extends Controller
     public function logout(request $request){
         // delete user data from session after logout
         $request->session()->forget('user');
-        return redirect('/admin/auth/login');
+        return redirect('/admin');
     }
 
     public function register_user(){

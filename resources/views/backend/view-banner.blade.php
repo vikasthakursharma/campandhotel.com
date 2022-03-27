@@ -126,12 +126,12 @@
                                                                 </td>
                                                                 <td>
 
-                                                                    <a href="{{ url('/admin/banner/create/') }}"><i class="fas fa-eye"></i></a>
+                                                                    <a href="{{ url('/admin/banner/create/') }}"><i class="fas fa-eye" style="font-size: 20px;"></i></a>
                                                                     <a
                                                                         href="{{ url('/admin/banner/edit/' . $allbanner->id) }}"><i
-                                                                            class="far fa-edit"></i></a>
+                                                                            class="far fa-edit" style="font-size: 20px;"></i></a>
                                                                     <a
-                                                                        href="{{ url('/admin/banner/delete/' . $allbanner->id) }}"><i class="far fa-trash-alt"></i></a>
+                                                                        href="{{ url('/admin/banner/delete/' . $allbanner->id) }}"><i class="far fa-trash-alt" style="font-size: 20px;"></i></a>
                                                                 </td>
                                                             </tr>
                                                         @endforeach

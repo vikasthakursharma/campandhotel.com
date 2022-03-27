@@ -11,7 +11,8 @@ use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\Frontend\TestimonialController;
 use App\Http\Controllers\Backend\AuthController;
 use App\Http\Controllers\Backend\UsersController;
-use App\Models\Banner;
+use App\Http\Controllers\Backend\ProfileController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,8 +35,7 @@ Route::get('/testimonial',[TestimonialController::class,'index'])->name('name.te
 
 //------------------ admin routes start ----------------------------//
 // ------login logout register routes ------------------------------------//
-Route::get('/admin', [AuthController::class, 'index'])->name('name.login');
-Route::get('/admin/auth/login', [AuthController::class, 'index'])->name('name.login');
+Route::get('/admin', [AuthController::class, 'index'])->name('name.login')->middleware('active.login');
 Route::post('/admin/auth/login', [AuthController::class, 'login'])->name('name.login');
 Route::get('/admin/auth/logout', [AuthController::class, 'logout'])->name('backend.users');
 
@@ -44,7 +44,7 @@ Route::post('/admin/auth/register', [AuthController::class, 'register'])->name('
 
 
 // no access
-Route::get('not-access', function () {
+Route::get('/not-access', function () {
 
     return view('backend.layouts.errors-404');
 });

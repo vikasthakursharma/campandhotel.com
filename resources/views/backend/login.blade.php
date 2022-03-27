@@ -32,7 +32,7 @@
               </div>
               <div class="card-body">
 
-              <form method="POST" action="{{ url('/admin/auth/login')}}" class="needs-validation" novalidate="">
+              <form method="POST" action="{{ url('/admin/auth/login')}}" class="needs-validation">
                 @csrf
                   <div class="form-group">
                     <label for="email">Email</label>
