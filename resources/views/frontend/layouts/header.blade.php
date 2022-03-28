@@ -39,15 +39,22 @@
 				        <div class="uk-offcanvas-bar">
 
 				            <ul class="uk-nav uk-nav-default">
-				                <li class="uk-parent uk-active">
+				                <li @if (url()->current() == route('name.home')) class="uk-parent uk-active" @endif>
 				                	<a href="{{ route('name.home')}}">Home</a>
-
 				                </li>
 
-                                <li><a href="{{ route('name.home')}}">About Us</a></li>
-                                <li><a href="{{ route('name.gallery')}}">Gallery</a></li>
-                                <li><a href="{{ route('name.testimonial')}}">Testimonial</a></li>
-                                <li><a href="{{ route('name.contact')}}">Contact</a></li>
+                                <li @if (url()->current() == route('name.about')) class="uk-parent uk-active" @endif>
+									<a href="{{ route('name.about')}}">About Us</a>
+								</li>
+                                <li @if (url()->current() == route('name.gallery')) class="uk-parent uk-active" @endif>
+									<a href="{{ route('name.gallery')}}">Gallery</a>
+								</li>
+                                <li @if (url()->current() == route('name.testimonial')) class="uk-parent uk-active" @endif>
+									<a href="{{ route('name.testimonial')}}">Testimonial</a>
+								</li>
+                                <li @if (url()->current() == route('name.contact')) class="uk-parent uk-active" @endif>
+									<a href="{{ route('name.contact')}}">Contact</a>
+								</li>
 
 				            </ul>
 
@@ -90,7 +97,7 @@
 							<!-- Header Logo -->
 							<div class="uk-width-auto">
 								<div class="impx-logo">
-									<a href="index.html"><img src="{{ url('frontend/images/logo.png')}}" class="" alt="Logo"></a>
+									<a href="{{ url('/') }}"><img src="{{ url('frontend/images/logo.png')}}" class="" alt="Logo"></a>
 								</div>
 							</div>
 							<!-- Header Logo End-->
@@ -101,32 +108,29 @@
 									<div class="uk-navbar-right impx-navbar-right">
 	        							<ul class="uk-navbar-nav impx-nav">
 											<!-- Navigation Items -->
-									    	<li class="uk-parent uk-active">
-                                            <a href="{{ route('name.home')}}" class="uk-navbar-nav-subtitle"><div>Home</div></a>
+									    	<li @if (url()->current() == route('name.home')) class="uk-parent uk-active" @endif>
+                                            	<a href="{{ route('name.home')}}" class="uk-navbar-nav-subtitle"><div>Home</div></a>
+											</li>
 
-									    	</li>
+											<li @if (url()->current() == route('name.about')) class="uk-parent uk-active" @endif>
+												<a href="{{ route('name.about')}}" class="uk-navbar-nav-subtitle"><div>About us</div></a>
+											</li>
+											<li @if (url()->current() == route('name.gallery')) class="uk-parent uk-active" @endif>
+												<a href="{{ route('name.gallery')}}" class="uk-navbar-nav-subtitle"><div>Gallery</div></a>
+											</li>
 
-                                        <li><a href="{{ route('name.about')}}" class="uk-navbar-nav-subtitle"><div>About us</div></a></li>
-                                            <li><a href="{{ route('name.gallery')}}" class="uk-navbar-nav-subtitle"><div>Gallery</div></a></li>
-
-                                        <li><a href="{{ route('name.testimonial')}}" class="uk-navbar-nav-subtitle"><div>Testimonial</div></a></li>
-
-                                            <li><a href="{{ route('name.contact')}}" class="uk-navbar-nav-subtitle"><div>Contact us</div></a></li>
+											<li @if (url()->current() == route('name.testimonial')) class="uk-parent uk-active" @endif>
+												<a href="{{ route('name.testimonial')}}" class="uk-navbar-nav-subtitle"><div>Testimonial</div></a>
+											</li>
+											<li @if (url()->current() == route('name.contact')) class="uk-parent uk-active" @endif>
+												<a href="{{ route('name.contact')}}" class="uk-navbar-nav-subtitle"><div>Contact us</div></a>
+											</li>
 									    </ul>
 									    <!-- Navigation Items End -->
 									</div>
 								</nav>
 							</div>
 							<!-- Header Navigation End -->
-
-							<!-- Promo Ribbon -->
-							<div class="uk-width-auto uk-position-relative">
-								<div class="ribbon">
-								  <i><span><s></s>30% <span>Off!</span><s></s></span></i>
-								</div>
-							</div>
-							<!-- Promo Ribbon End -->
-
 						</div>
 					</div>
 				</div>
