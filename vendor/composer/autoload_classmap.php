@@ -21,6 +21,7 @@ return array(
     'App\\Http\\Controllers\\Frontend\\TestimonialController' => $baseDir . '/app/Http/Controllers/Frontend/TestimonialController.php',
     'App\\Http\\Controllers\\TestimonialController' => $baseDir . '/app/Http/Controllers/TestimonialController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
+    'App\\Http\\Middleware\\ActiveLogin' => $baseDir . '/app/Http/Middleware/ActiveLogin.php',
     'App\\Http\\Middleware\\AdminGuard' => $baseDir . '/app/Http/Middleware/AdminGuard.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',

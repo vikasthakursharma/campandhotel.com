@@ -17,11 +17,11 @@ class BannerController extends Controller
     {
 
         $search = $request['search'] ?? "";
-             if ($search!='') {
-                $banner = Banner::where('tagline','LIKE',"$search%")->paginate(5);
-             } else {
-                  $banner = Banner::paginate(5);
-             }
+        if ($search != '') {
+            $banner = Banner::where('tagline', 'LIKE', "$search%")->paginate(5);
+        } else {
+            $banner = Banner::paginate(5);
+        }
         $data = compact('banner');
         return view('backend.view-banner')->with($data);
     }
@@ -129,7 +129,6 @@ class BannerController extends Controller
                 foreach ($multiple_image_array as $images) {
 
                     File::delete(public_path("storage/images/" . $images));
-
                 }
             }
 
@@ -167,11 +166,33 @@ class BannerController extends Controller
     }
 
     // imageGallery display all image of banner
-    public function imageGallery() {
+    public function imageGallery()
+    {
         // get all banner 
         $banners = Banner::all();
         $data = compact('banners');
-        
+
         return view('backend.gallery')->with($data);
+    }
+
+    // acitvate banner
+    public function activate($id)
+    {
+        // find active true banner
+        $banner = Banner::where('active', true)->first();
+
+        if (!is_null($banner)) {
+            $banner->active = false;
+            $banner->save();
+        }
+
+        // find by id 
+        $newBanner = Banner::find($id);
+
+        // update banner with activate true
+        $newBanner->active = 1;
+        $newBanner->save();
+
+        return redirect('/admin/banner');
     }
 }

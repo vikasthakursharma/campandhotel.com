@@ -61,6 +61,7 @@ Route::middleware(['admin.guard'])->group(function () {
     Route::get('/admin/banner/create', [BannerController::class, 'add_banner'])->name('name.create');
     Route::post('/admin/banner/create', [BannerController::class, 'store'])->name('name.create');
     Route::get('/admin/banner/edit/{id}', [BannerController::class, 'edit'])->name('name.edit');
+    Route::get('/admin/banner/activate/{id}', [BannerController::class, 'activate']);
 
     Route::get('/admin/banner/update/{id}', [BannerController::class, 'update'])->name('name.update');
     Route::post('/admin/banner/update/{id}', [BannerController::class, 'update'])->name('name.update');

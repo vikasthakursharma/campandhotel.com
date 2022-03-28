@@ -17,6 +17,7 @@ class CreateBannerTable extends Migration
             $table->id();
             $table->string('tagline');
             $table->string('image');
+            $table->boolean('active')->default(false);
             $table->timestamps();
         });
     }

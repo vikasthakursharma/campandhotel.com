@@ -121,8 +121,14 @@
                                                                 </td>
                                                                 <td>2018-01-20</td>
                                                                 <td>
-                                                                    <div class="badge badge-success badge-shadow">Completed
-                                                                    </div>
+                                                                    @if ($allbanner->active == true)
+                                                                        <div class="badge badge-success badge-shadow">Active</div>
+                                                                    @else
+                                                                    <a href="{{url('/admin/banner/activate/'. $allbanner->id)}}">
+                                                                        <div class="badge badge-danger badge-shadow">Activate</div>
+                                                                    </a>
+                                                                    @endif
+                                                                    
                                                                 </td>
                                                                 <td>
 

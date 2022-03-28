@@ -25,7 +25,8 @@ class AuthController extends Controller
 
         $result = Auth::where(['email'=>$email])->first();
 
-        if($result){
+
+        if(!empty($result)){
 
             if(Hash::check($password, $result->password))
             {
@@ -49,6 +50,8 @@ class AuthController extends Controller
         }else{
             $request->session()->flash('error','Invalid credentails');
         }
+
+        return redirect('/admin');
     }
 
     public function logout(request $request){
@@ -75,6 +78,6 @@ class AuthController extends Controller
         ]);
         $auth->save();
         sendRegisterUserEmail($auth->name, $auth->email,$request['password']);
-        return redirect('/admin/auth/register')->with('status', 'Admin Register successfully check your email id to login credentials!');
+        return redirect('/admin')->with('status', 'Admin Register successfully check your email id to login credentials!');
     }
 }

@@ -537,6 +537,7 @@ class ComposerStaticInit66bb8738a6b8142c60d731ebc3f449eb
         'App\\Http\\Controllers\\Frontend\\TestimonialController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/TestimonialController.php',
         'App\\Http\\Controllers\\TestimonialController' => __DIR__ . '/../..' . '/app/Http/Controllers/TestimonialController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
+        'App\\Http\\Middleware\\ActiveLogin' => __DIR__ . '/../..' . '/app/Http/Middleware/ActiveLogin.php',
         'App\\Http\\Middleware\\AdminGuard' => __DIR__ . '/../..' . '/app/Http/Middleware/AdminGuard.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
