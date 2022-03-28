@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Backend\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Backend\BannerController;
+use Mail;
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Validation\Rules\Password;
 class AuthController extends Controller
 {
     //
@@ -21,31 +25,39 @@ class AuthController extends Controller
 
         $result = Auth::where(['email'=>$email])->first();
 
-        if($result){
+
+        if(!empty($result)){
 
             if(Hash::check($password, $result->password))
             {
-                $request->session()->put('admin_login',true);
-                $request->session()->put('admin_name',$result->name);
-                $request->session()->put('admin_email',$result->email);
+                $user = array(
+                    'user_name' => $result->name,
+                    'user_email' => $result->email,
+                    'active' => true
+                );
 
-                return redirect('admin/dashboard/');
+                // put user data into session after login
+                $request->session()->put('user', $user);
+
+               return redirect('/admin/home');
 
             }else{
 
                 $request->session()->flash('error','Please enter valid password');
-                return redirect('admin/auth/login');
+                return redirect('/admin');
             }
 
         }else{
             $request->session()->flash('error','Invalid credentails');
         }
+
+        return redirect('/admin');
     }
 
     public function logout(request $request){
-        $request->session()->forget('admin_login');
-        $request->session()->forget('admin_email');
-        return redirect('admin/auth/login');
+        // delete user data from session after logout
+        $request->session()->forget('user');
+        return redirect('/admin');
     }
 
     public function register_user(){
@@ -59,7 +71,13 @@ class AuthController extends Controller
 
         $auth->email = $request['email'];
         $auth->password = Hash::make($request['password']);
+        $request->validate([
+            'name'=>'required|string|',
+            'email'=>'required|unique:users',
+            'password' => ['required',Password::min(8)],
+        ]);
         $auth->save();
-        return redirect('/admin/auth/login');
+        sendRegisterUserEmail($auth->name, $auth->email,$request['password']);
+        return redirect('/admin')->with('status', 'Admin Register successfully check your email id to login credentials!');
     }
 }
