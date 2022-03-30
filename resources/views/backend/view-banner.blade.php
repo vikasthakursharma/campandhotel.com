@@ -48,9 +48,10 @@
                                                             <tr role="row">
                                                                 <th class="text-center sorting_asc" tabindex="0"
                                                                     aria-controls="table-1" rowspan="1" colspan="1"
-                                                                    aria-sort="ascending" aria-label="
-                                                                                  #
-                                                                                : activate to sort column descending"
+                                                                    aria-sort="ascending"
+                                                                    aria-label="
+                                                                                                                  #
+                                                                                                                : activate to sort column descending"
                                                                     style="width: 24.4375px;">
                                                                     #
                                                                 </th>
@@ -108,36 +109,52 @@
                                                                         }
                                                                     @endphp
                                                                     @if (!empty($images))
-                                                                        @foreach ($images as $key => $imgSrc)
-                                                                            @if ($key < 2)
-                                                                                <img src="{{ asset('storage/images/' . $imgSrc) }}"
-                                                                                    class="img img-thumbnail"
-                                                                                    alt="{{ $imgSrc }}"
-                                                                                    style="width: 100px;height:100px;">
-                                                                            @endif
-                                                                        @endforeach
-                                                                    @endif
+                                                                        <ul class="list-unstyled order-list m-b-0 m-b-0">
 
+                                                                            @foreach ($images as $key => $imgSrc)
+                                                                                @if ($key < 2)
+                                                                                    <li class="team-member team-member-sm" style="width: 80px;">
+                                                                                        <img class="img img-thumbnail"
+                                                                                            src="{{ asset('storage/images/' . $imgSrc) }}"
+                                                                                            alt="{{ $imgSrc }}"
+                                                                                            data-toggle="tooltip" title=""
+                                                                                            data-original-title="{{ $imgSrc }}" style="border: 0px; border-radius: 10px;">
+                                                                                    </li>
+                                                                                @endif
+                                                                            @endforeach
+                                                                            <li class="avatar avatar-sm" style="height: 45px;"><span
+                                                                                    class="badge badge-primary">+ {{count(array_slice($images, 2))}}</span>
+                                                                            </li>
+                                                                        </ul>
+                                                                    @endif
                                                                 </td>
                                                                 <td>2018-01-20</td>
                                                                 <td>
                                                                     @if ($allbanner->active == true)
-                                                                        <div class="badge badge-success badge-shadow">Active</div>
+                                                                        <div class="badge badge-success badge-shadow">Active
+                                                                        </div>
                                                                     @else
-                                                                    <a href="{{url('/admin/banner/activate/'. $allbanner->id)}}">
-                                                                        <div class="badge badge-danger badge-shadow">Activate</div>
-                                                                    </a>
+                                                                        <a
+                                                                            href="{{ url('/admin/banner/activate/' . $allbanner->id) }}">
+                                                                            <div class="badge badge-danger badge-shadow">
+                                                                                Activate</div>
+                                                                        </a>
                                                                     @endif
-                                                                    
+
                                                                 </td>
                                                                 <td>
 
-                                                                    <a href="{{ url('/admin/banner/create/') }}"><i class="fas fa-eye" style="font-size: 20px;"></i></a>
+                                                                    <a href="{{ url('/admin/banner/create/') }}"><i
+                                                                            class="fas fa-eye"
+                                                                            style="font-size: 20px;"></i></a>
                                                                     <a
                                                                         href="{{ url('/admin/banner/edit/' . $allbanner->id) }}"><i
-                                                                            class="far fa-edit" style="font-size: 20px;"></i></a>
+                                                                            class="far fa-edit"
+                                                                            style="font-size: 20px;"></i></a>
                                                                     <a
-                                                                        href="{{ url('/admin/banner/delete/' . $allbanner->id) }}"><i class="far fa-trash-alt" style="font-size: 20px;"></i></a>
+                                                                        href="{{ url('/admin/banner/delete/' . $allbanner->id) }}"><i
+                                                                            class="far fa-trash-alt"
+                                                                            style="font-size: 20px;"></i></a>
                                                                 </td>
                                                             </tr>
                                                         @endforeach
