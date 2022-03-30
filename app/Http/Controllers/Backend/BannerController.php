@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 
 use App\Models\Banner;
 use File;
+use Image;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
+
 
 
 class BannerController extends Controller
@@ -18,7 +21,7 @@ class BannerController extends Controller
 
         $search = $request['search'] ?? "";
         if ($search != '') {
-            $banner = Banner::where('tagline', 'LIKE', "$search%")->paginate(5);
+            $banner = Banner::where('tagline', 'LIKE', "%$search%")->paginate(5);
         } else {
             $banner = Banner::paginate(5);
         }
@@ -39,28 +42,57 @@ class BannerController extends Controller
         if ($request->validate(
             [
                 'tagline' => 'required',
-                'image' => 'required'
+                 'image' => 'required'
             ]
-        )) {
+        ))
 
-            // uploadImage function upload the image and use two parameter 
+            // uploadImage function upload the image and use two parameter
             // 1. Request parameter
             // 2. image name which is given as name in input field
             // 3. image path
-            $bannerImageArr = uploadImage($request, 'image', 'public/images');
-
-            $bannerImage = implode(',', $bannerImageArr);
-
+            //$bannerImageArr = uploadImage($request, 'image', 'public/images');
             // create object of model banner
             $modelBanner = new Banner;
 
             $modelBanner->tagline = $request['tagline'];
+            $bannerImageArr = array();
 
-            $modelBanner->image = $bannerImage;
-            $modelBanner->save();
-        }
+            if ($request->hasFile('image')) {
 
-        return redirect('/admin/banner/');
+                foreach($request->file('image') as $file){
+
+                    //get filename with extension
+                    $filenamewithextension = $file->getClientOriginalName();
+
+                    //get filename without extension
+                    $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+
+                    //get file extension
+                    $extension = $file->getClientOriginalExtension();
+
+
+                    //filename to store
+                    $filenametostore = $filename.'_'.uniqid().'.'.$extension;
+
+                    Storage::put('public/images/'. $filenametostore, fopen($file, 'r+'));
+
+                    //Resize image here
+                    $thumbnailpath = public_path('storage/images/'.$filenametostore);
+
+                    $img = Image::make($thumbnailpath)->resize(1920*1080, function($constraint) {
+                        $constraint->aspectRatio();
+                    });
+
+                    $bannerImageArr[] = $filenametostore;
+                    $img->save($thumbnailpath);
+                }
+
+                $bannerImage = implode(',', $bannerImageArr);
+                $modelBanner->image = $bannerImage;
+                $modelBanner->save();
+
+                return redirect('/admin/banner/');
+            }
     }
     public function edit($id)
     {
@@ -81,7 +113,7 @@ class BannerController extends Controller
     public function update(Request $request, $id)
     {
 
-        // uploadImage function upload the image and use two parameter 
+        // uploadImage function upload the image and use two parameter
         // 1. Request parameter
         // 2. image name which is given as name in input field
         // 3. image path
@@ -168,7 +200,7 @@ class BannerController extends Controller
     // imageGallery display all image of banner
     public function imageGallery()
     {
-        // get all banner 
+        // get all banner
         $banners = Banner::all();
         $data = compact('banners');
 
@@ -186,7 +218,7 @@ class BannerController extends Controller
             $banner->save();
         }
 
-        // find by id 
+        // find by id
         $newBanner = Banner::find($id);
 
         // update banner with activate true

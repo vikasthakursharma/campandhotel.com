@@ -33,6 +33,7 @@ Route::get('/testimonial',[TestimonialController::class,'index'])->name('name.te
 
 //===============================================================//
 
+
 //------------------ admin routes start ----------------------------//
 // ------login logout register routes ------------------------------------//
 Route::get('/admin', [AuthController::class, 'index'])->name('name.login')->middleware('active.login');
@@ -40,7 +41,11 @@ Route::post('/admin/auth/login', [AuthController::class, 'login'])->name('name.l
 Route::get('/admin/auth/logout', [AuthController::class, 'logout'])->name('backend.users');
 
 Route::get('/admin/auth/register', [AuthController::class, 'register_user'])->name('backend.register');
+
+Route::get('/markAsReadNotification/{id}', [AuthController::class, 'notificationMarkAsRead'])->name('markAsReadNotification');
+
 Route::post('/admin/auth/register', [AuthController::class, 'register'])->name('backend.register');
+
 
 
 // no access
@@ -49,10 +54,11 @@ Route::get('/not-access', function () {
     return view('backend.layouts.errors-404');
 });
 
-// ----- no access without login -----------//
+Route::middleware(['active.login'])->group(function () {
+    // ----- no access without login -----------//
 Route::middleware(['admin.guard'])->group(function () {
     // home page
-    Route::get('/admin/home', [BackendController::class, 'index']);
+    Route::get('/admin/home', [BackendController::class, 'index'])->name('admin.home');
 
     // ----------- banner view routes ---------------------------------------------//
     Route::get('/admin/banner/', [BannerController::class, 'index'])->name('name.index');
@@ -79,6 +85,8 @@ Route::middleware(['admin.guard'])->group(function () {
     // -------------------- gallery ----------------------//
     Route::get('/admin/gallery', [BannerController::class, 'imageGallery']);
 });
-
 //------------------ admin routes end -----------------------------//
+
+});
+
 

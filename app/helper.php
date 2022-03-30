@@ -20,7 +20,7 @@ use Illuminate\Http\Request as HttpRequest;
     });
 }
 
-// uploadImage 
+// uploadImage
 function uploadImage(HttpRequest $request, String $imageName, String $imagePath) {
     $bannerImageArr = array();
 

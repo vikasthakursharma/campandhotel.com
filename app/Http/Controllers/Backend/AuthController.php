@@ -10,6 +10,10 @@ use App\Http\Controllers\Backend\BannerController;
 use Mail;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
+
+use App\Notifications\NewAdminRegisterNotify;
+use Illuminate\Support\Facades\Notification;
+
 class AuthController extends Controller
 {
     //
@@ -72,12 +76,31 @@ class AuthController extends Controller
         $auth->email = $request['email'];
         $auth->password = Hash::make($request['password']);
         $request->validate([
-            'name'=>'required|string|',
-            'email'=>'required|unique:users',
-            'password' => ['required',Password::min(8)],
+                        'name'=>'required|string|',
+                        'email'=>'required|unique:users',
+                        'password' => ['required',Password::min(8)],
         ]);
         $auth->save();
         sendRegisterUserEmail($auth->name, $auth->email,$request['password']);
+
+        //send notification to admin when new user registered
+        $user = Auth::first();
+        $notification = $user->notifications;
+        $user->notify(new NewAdminRegisterNotify($user));
+
         return redirect('/admin')->with('status', 'Admin Register successfully check your email id to login credentials!');
     }
+
+    //notifcation to the admin mark as read function
+
+    public function notificationMarkAsRead($id){
+        if($id){
+             $user = Auth::first();
+             $notification = $user->notifications;
+
+             $user->notifications->where('id',$id)->markAsread();
+              return redirect()->back();
+        }
+    }
+
 }

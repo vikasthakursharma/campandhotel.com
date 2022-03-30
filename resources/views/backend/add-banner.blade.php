@@ -37,11 +37,11 @@
                                         @isset($banner)
                                             @php
                                                 $images = [];
-                                                
+
                                                 if ($banner->image != '') {
                                                     $images = explode(',', $banner->image);
                                                 }
-                                                
+
                                             @endphp
                                             @if (!empty($images))
                                                 @foreach ($images as $imgSrc)
