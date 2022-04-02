@@ -118,7 +118,7 @@
                                                                                             src="{{ asset('storage/images/' . $imgSrc) }}"
                                                                                             alt="{{ $imgSrc }}"
                                                                                             data-toggle="tooltip" title=""
-                                                                                            data-original-title="{{ $imgSrc }}" style="border: 0px; border-radius: 10px;">
+                                                                                            data-original-title="{{ $imgSrc }}" style="border: 0px; border-radius: 10px;height: 60px;">
                                                                                     </li>
                                                                                 @endif
                                                                             @endforeach
