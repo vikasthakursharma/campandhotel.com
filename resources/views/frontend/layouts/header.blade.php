@@ -26,8 +26,7 @@
 <body>
 
 <div class="page-wrapper">
-     <!-- Preloader -->
-     <div class="preloader"></div>
+
 
     <header class="main-header">
         <!--Header Top-->
@@ -47,9 +46,6 @@
                     <ul class="social-icons">
 						<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
 						<li><a href="#"><span class="fab fa-google"></span></a></li>
-						<li><a href="#"><span class="fab fa-twitter"></span></a></li>
-						<li><a href="#"><span class="fab fa-skype"></span></a></li>
-						<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
 					</ul>
                 </div>
             </div>
@@ -78,60 +74,15 @@
 
                             <div class="collapse navbar-collapse clearfix">
                                 <ul class="navigation clearfix">
-                                <li class="current"><a href="{{ route('frontend.home')}}">Home</a>
+                                <li class="{{ (request()->is('/')) ? 'current' : '' }}"><a href="{{ route('frontend.home')}}">Home</a>
                                     </li>
-									<li class="dropdown"><a href="#">About us</a>
-                                        <ul>
-                                            <li><a href="about.html">About Us</a></li>
-											<li><a href="faq.html">Faq</a></li>
-											<li><a href="gallery.html">Gallery</a></li>
-                                        </ul>
+                                <li  class="{{ (request()->is('about')) ? 'current' : '' }}"><a href="{{ route('frontend.about')}}">About us</a>
                                     </li>
-									<li class="dropdown has-mega-menu"><a href="#"><span data-hover="Pages">Pages</span></a>
-										<div class="mega-menu">
-											<div class="mega-menu-bar row clearfix">
-												<div class="column col-md-3 col-xs-12">
-													<h3>About Us</h3>
-													<ul>
-														<li><a href="about.html">About Us</a></li>
-														<li><a href="faq.html">Faq</a></li>
-														<li><a href="take-tour.html">Take Tour</a></li>
-														<li><a href="video-tour.html">Video Tour</a></li>
-														<li><a href="gallery.html">Gallery</a></li>
-														<li><a href="comming-soon.html">Comming Soon</a></li>
-													</ul>
-												</div>
-												<div class="column col-md-3 col-xs-12">
-													<h3>Properties</h3>
-													<ul>
-														<li><a href="properties.html">Properties</a></li>
-														<li><a href="dashboard.html">Dashboard</a></li>
-														<li><a href="submit-property.html">Submit Property</a></li>
-														<li><a href="properties-list-view.html">Properties List View</a></li>
-														<li><a href="properties-grid-view.html">Properties Grid View</a></li>
-														<li><a href="properties-classic-view.html">Properties Classic View</a></li>
-														<li><a href="properties-detail.html">Properties Detail</a></li>
-													</ul>
-												</div>
-												<div class="column col-md-3 col-xs-12">
-													<h3>Blog</h3>
-													<ul>
-														<li><a href="blog.html">Our Blog</a></li>
-														<li><a href="blog-list.html">Blog List</a></li>
-														<li><a href="blog-classic.html">Blog Classic</a></li>
-														<li><a href="blog-detail.html">Blog Detail</a></li>
-														<li><a href="not-found.html">Not Found</a></li>
-													</ul>
-												</div>
-												<div class="column col-md-3 col-xs-12">
-													<h3>Shops</h3>
-												</div>
-											</div>
-										</div>
+                                    <li  class="{{ (request()->is('gallery')) ? 'current' : '' }}"><a href="{{ route('frontend.gallery')}}">Gallery</a></li>
+                                    <li  class="{{ (request()->is('faq')) ? 'current' : '' }}"><a href="{{ route('frontend.faq')}}">Faq</a></li>
+                                <li class="{{ (request()->is('tent')) ? 'current' : '' }}"><a href="{{ route('tent')}}">Tent</a>
                                     </li>
-                                <li><a href="{{ route('tent')}}">Tent</a>
-                                    </li>
-                                <li><a href="{{ route('frontend.contact')}}">Contact us</a>
+                                <li  class="{{ (request()->is('contact-us')) ? 'current' : '' }}"><a href="{{ route('frontend.contact')}}">Contact us</a>
                                     </li>
                                 </ul>
                             </div>

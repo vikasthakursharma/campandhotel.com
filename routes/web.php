@@ -35,6 +35,10 @@ Route::get('/login',[LoginController::class,'index'])->name('frontend.login');
 Route::get('/register',[RegisterController::class,'index'])->name('frontend.register');
 Route::get('/tent',[TentController::class,'index'])->name('tent');
 Route::get('/tent-details',[TentController::class,'single_tent_details'])->name('tent.details');
+Route::get('/faq',[TentController::class,'faq_page'])->name('frontend.faq');
+
+
+
 
 //----------------- site routes end -----------------------------//
 

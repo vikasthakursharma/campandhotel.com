@@ -11,6 +11,10 @@ class TentController extends Controller
         return view('frontend.tent');
     }
 
+    //function to view the faq page
+    public function faq_page(){
+        return view('frontend.faq');
+    }
     //function to view the tent details
     public function single_tent_details(){
         return view('frontend.single-tent-detail');
