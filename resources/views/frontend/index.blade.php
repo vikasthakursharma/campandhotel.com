@@ -1,822 +1,1000 @@
 @extends('frontend.layouts.main')
 @section('main-section')
-    <!-- SLIDESHOW -->
-    <div class="uk-container-expand">
-        <div class="impx-slide-container style1">
-            <div class="impx-slideshow-fw">
+@php
+$imageArr = [];
 
-                <div
-                    data-uk-slideshow="autoplay: true; autoplay-interval: 6000; animation: fade; finite: false; min-height: 319; max-height: 980;">
-                    <div class="uk-position-relative uk-visible-toggle uk-light">
+if (!empty($banner)) {
+    $imageArr = explode(',', $banner->image);
+}
 
-                        <ul class="uk-slideshow-items">
-                            @php
-                                $imageArr = [];
-                                
-                                if (!empty($banner)) {
-                                    $imageArr = explode(',', $banner->image);
-                                }
-                                
-                            @endphp
+@endphp
+<style>
+    .content{
+        display: none !important;
+    }
+</style>
 
+<!-- Main Slider Two -->
+<section class="main-slider-two">
 
-                            @switch($imageArr)
-                                @case(count($imageArr) == 1)
-                                    @foreach ($imageArr as $imgSrc)
-                                        <li>
-                                            <div
-                                                class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-bottom-center">
-                                                <img src="{{ asset('storage/images/' . $imgSrc) }}" alt="{{ $imgSrc }}"
-                                                    data-uk-cover="height:319px">
-                                                <div class="uk-overlay-primary uk-position-cover impx-overlay dark"></div>
-                                            </div>
-                                        </li>
-                                    @endforeach
+    <div class="main-slider-carousel owl-carousel owl-theme">
 
-                                    @for ($i = 2; $i <= 5; $i++)
-                                        <li>
-                                            <div
-                                                class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-bottom-center">
-                                                <img src="{{ url('frontend/images/slideshow/full-slide-' . $i . '.jpg') }}"
-                                                    alt="{{ $i . '.jpg' }}" data-uk-cover="height:319px">
-                                                <div class="uk-overlay-primary uk-position-cover impx-overlay dark"></div>
-                                            </div>
-                                        </li>
-                                    @endfor
-                                @break
+            @php
+            $imageArr = [];
 
-                                @case(count($imageArr) == 2)
-                                    @foreach ($imageArr as $imgSrc)
-                                        <li>
-                                            <div
-                                                class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-bottom-center">
-                                                <img src="{{ asset('storage/images/' . $imgSrc) }}" alt="{{ $imgSrc }}"
-                                                    data-uk-cover="height:319px">
-                                                <div class="uk-overlay-primary uk-position-cover impx-overlay dark"></div>
-                                            </div>
-                                        </li>
-                                    @endforeach
+            if (!empty($banner)) {
+                $imageArr = explode(',', $banner->image);
+            }
 
-                                    @for ($i = 3; $i <= 5; $i++)
-                                        <li>
-                                            <div
-                                                class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-bottom-center">
-                                                <img src="{{ url('frontend/images/slideshow/full-slide-' . $i . '.jpg') }}"
-                                                    alt="{{ $i . '.jpg' }}" data-uk-cover="height:319px">
-                                                <div class="uk-overlay-primary uk-position-cover impx-overlay dark"></div>
-                                            </div>
-                                        </li>
-                                    @endfor
-                                @break
+        @endphp
+        @switch($imageArr)
+            @case(count($imageArr) == 1)
+                @foreach ($imageArr as $imgSrc)
 
-                                @case(count($imageArr) == 3)
-                                    @foreach ($imageArr as $imgSrc)
-                                        <li>
-                                            <div
-                                                class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-bottom-center">
-                                                <img src="{{ asset('storage/images/' . $imgSrc) }}" alt="{{ $imgSrc }}"
-                                                    data-uk-cover="height:319px">
-                                                <div class="uk-overlay-primary uk-position-cover impx-overlay dark"></div>
-                                            </div>
-                                        </li>
-                                    @endforeach
-
-                                    @for ($i = 4; $i <= 5; $i++)
-                                        <li>
-                                            <div
-                                                class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-bottom-center">
-                                                <img src="{{ url('frontend/images/slideshow/full-slide-' . $i . '.jpg') }}"
-                                                    alt="{{ $i . '.jpg' }}" data-uk-cover="height:319px">
-                                                <div class="uk-overlay-primary uk-position-cover impx-overlay dark"></div>
-                                            </div>
-                                        </li>
-                                    @endfor
-                                @break
-
-                                @case(count($imageArr) == 4)
-                                    @foreach ($imageArr as $imgSrc)
-                                        <li>
-                                            <div
-                                                class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-bottom-center">
-                                                <img src="{{ asset('storage/images/' . $imgSrc) }}" alt="{{ $imgSrc }}"
-                                                    data-uk-cover="height:319px">
-                                                <div class="uk-overlay-primary uk-position-cover impx-overlay dark"></div>
-                                            </div>
-                                        </li>
-                                    @endforeach
-
-                                    @for ($i = 5; $i <= 5; $i++)
-                                        <li>
-                                            <div
-                                                class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-bottom-center">
-                                                <img src="{{ url('frontend/images/slideshow/full-slide-' . $i . '.jpg') }}"
-                                                    alt="{{ $i . '.jpg' }}" data-uk-cover="height:319px">
-                                                <div class="uk-overlay-primary uk-position-cover impx-overlay dark"></div>
-                                            </div>
-                                        </li>
-                                    @endfor
-                                @break
-
-                                @default
-                                    @if (count($imageArr) > 0)
-                                        @foreach ($imageArr as $key => $imgSrc)
-                                            <li class="{{ $key }}">
-                                                <div
-                                                    class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-bottom-center">
-                                                    <img src="{{ asset('storage/images/' . $imgSrc) }}"
-                                                        alt="{{ $imgSrc }}" data-uk-cover="height:319px">
-                                                    <div class="uk-overlay-primary uk-position-cover impx-overlay dark"></div>
-                                                </div>
-                                            </li>
-                                            @if ($key == 4)
-                                                @break
-                                            @endif
-                                        @endforeach
-                                    @else
-                                        @for ($i = 1; $i <= 5; $i++)
-                                            <li>
-                                                <div
-                                                    class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-bottom-center">
-                                                    <img src="{{ url('frontend/images/slideshow/full-slide-' . $i . '.jpg') }}"
-                                                        alt="{{ $i . '.jpg' }}" data-uk-cover="height:319px">
-                                                    <div class="uk-overlay-primary uk-position-cover impx-overlay dark"></div>
-                                                </div>
-                                            </li>
-                                        @endfor
-                                    @endif
-                            @endswitch
-
+        <div class="slide" style="background-image:url({{asset('storage/images/' . $imgSrc) }}">
+            <div class="auto-container">
+                <div class="content-outer">
+                    <div class="content">
+                        <div class="title">For Sale</div>
+                        <h1>Burj Khalifa Luxury Flat</h1>
+                        <div class="text">The best place to find the house you want <br> for your family and future.</div>
+                        <ul class="info-box">
+                            <li><span class="icon flaticon-dimension"></span> <strong>1800</strong> Area Sq-ft</li>
+                            <li><span class="icon flaticon-bed-2"></span> <strong>04</strong> Bed Room</li>
+                            <li><span class="icon flaticon-shower"></span> <strong>02</strong> Toilet</li>
                         </ul>
-
-                        <!-- Slideshow Nav -->
-                        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#"
-                            data-uk-slidenav-previous data-uk-slideshow-item="previous"></a>
-                        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" data-uk-slidenav-next
-                            data-uk-slideshow-item="next"></a>
-                        <!-- Slideshow Nav End -->
-
                     </div>
                 </div>
+            </div>
+        </div>
+        @endforeach
 
+        @for ($i = 2; $i <= 5; $i++)
+
+        <div class="slide" style="background-image:url({{ url('frontend/images/main-slider/full-slide-' . $i . '.jpg') }})">
+            <div class="auto-container">
+                <div class="content-outer">
+                    <div class="content">
+                        <div class="title">For Rent</div>
+                        <h1>Sydney New Form House</h1>
+                        <div class="text">The best place to find the house you want <br> for your family and future.</div>
+                        <ul class="info-box">
+                            <li><span class="icon flaticon-dimension"></span> <strong>1800</strong> Area Sq-ft</li>
+                            <li><span class="icon flaticon-bed-2"></span> <strong>04</strong> Bed Room</li>
+                            <li><span class="icon flaticon-shower"></span> <strong>02</strong> Toilet</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endfor
+        @break
+        @case(count($imageArr) == 2)
+        @foreach ($imageArr as $imgSrc)
+        <div class="slide" style="background-image:url({{ asset('storage/images/' . $imgSrc) }})">
+            <div class="auto-container">
+                <div class="content-outer">
+                    <div class="content">
+                        <div class="title sold">Sold Out</div>
+                        <h1>New York Modern Luxury House</h1>
+                        <div class="text">The best place to find the house you want <br> for your family and future.</div>
+                        <ul class="info-box">
+                            <li><span class="icon flaticon-dimension"></span> <strong>1800</strong> Area Sq-ft</li>
+                            <li><span class="icon flaticon-bed-2"></span> <strong>04</strong> Bed Room</li>
+                            <li><span class="icon flaticon-shower"></span> <strong>02</strong> Toilet</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
+        @for ($i = 3; $i <= 5; $i++)
+        <div class="slide" style="background-image:url({{ url('frontend/images/main-slider/full-slide-' . $i . '.jpg') }})">
+            <div class="auto-container">
+                <div class="content-outer">
+                    <div class="content">
+                        <div class="title sold">Sold Out</div>
+                        <h1>New York Modern Luxury House</h1>
+                        <div class="text">The best place to find the house you want <br> for your family and future.</div>
+                        <ul class="info-box">
+                            <li><span class="icon flaticon-dimension"></span> <strong>1800</strong> Area Sq-ft</li>
+                            <li><span class="icon flaticon-bed-2"></span> <strong>04</strong> Bed Room</li>
+                            <li><span class="icon flaticon-shower"></span> <strong>02</strong> Toilet</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endfor
+        @break
+        @case(count($imageArr) == 3)
+         @foreach ($imageArr as $imgSrc)
+        <div class="slide" style="background-image:url({{ asset('storage/images/' . $imgSrc) }})">
+            <div class="auto-container">
+                <div class="content-outer">
+                    <div class="content">
+                        <div class="title sold">Sold Out</div>
+                        <h1>New York Modern Luxury House</h1>
+                        <div class="text">The best place to find the house you want <br> for your family and future.</div>
+                        <ul class="info-box">
+                            <li><span class="icon flaticon-dimension"></span> <strong>1800</strong> Area Sq-ft</li>
+                            <li><span class="icon flaticon-bed-2"></span> <strong>04</strong> Bed Room</li>
+                            <li><span class="icon flaticon-shower"></span> <strong>02</strong> Toilet</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
+        @for ($i = 4; $i <= 5; $i++)
+        <div class="slide" style="background-image:url({{ url('frontend/images/main-slider/full-slide-' . $i . '.jpg') }})">
+            <div class="auto-container">
+                <div class="content-outer">
+                    <div class="content">
+                        <div class="title sold">Sold Out</div>
+                        <h1>New York Modern Luxury House</h1>
+                        <div class="text">The best place to find the house you want <br> for your family and future.</div>
+                        <ul class="info-box">
+                            <li><span class="icon flaticon-dimension"></span> <strong>1800</strong> Area Sq-ft</li>
+                            <li><span class="icon flaticon-bed-2"></span> <strong>04</strong> Bed Room</li>
+                            <li><span class="icon flaticon-shower"></span> <strong>02</strong> Toilet</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endfor
+        @break
+        @case(count($imageArr) == 4)
+        @foreach ($imageArr as $imgSrc)
+        <div class="slide" style="background-image:url({{ asset('storage/images/' . $imgSrc) }})">
+            <div class="auto-container">
+                <div class="content-outer">
+                    <div class="content">
+                        <div class="title sold">Sold Out</div>
+                        <h1>New York Modern Luxury House</h1>
+                        <div class="text">The best place to find the house you want <br> for your family and future.</div>
+                        <ul class="info-box">
+                            <li><span class="icon flaticon-dimension"></span> <strong>1800</strong> Area Sq-ft</li>
+                            <li><span class="icon flaticon-bed-2"></span> <strong>04</strong> Bed Room</li>
+                            <li><span class="icon flaticon-shower"></span> <strong>02</strong> Toilet</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
+        @for ($i = 5; $i <= 5; $i++)
+        <div class="slide" style="background-image:url({{ url('frontend/images/main-slider/full-slide-' . $i . '.jpg') }})">
+            <div class="auto-container">
+                <div class="content-outer">
+                    <div class="content">
+                        <div class="title sold">Sold Out</div>
+                        <h1>New York Modern Luxury House</h1>
+                        <div class="text">The best place to find the house you want <br> for your family and future.</div>
+                        <ul class="info-box">
+                            <li><span class="icon flaticon-dimension"></span> <strong>1800</strong> Area Sq-ft</li>
+                            <li><span class="icon flaticon-bed-2"></span> <strong>04</strong> Bed Room</li>
+                            <li><span class="icon flaticon-shower"></span> <strong>02</strong> Toilet</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endfor
+        @break
+        @default
+
+
+        @if (count($imageArr) > 0)
+         @foreach ($imageArr as $key => $imgSrc)
+        <div class="slide" style="background-image:url({{ asset('storage/images/' . $imgSrc) }})">
+            <div class="auto-container">
+                <div class="content-outer">
+                    <div class="content">
+                        <div class="title sold">Sold Out</div>
+                        <h1>New York Modern Luxury House</h1>
+                        <div class="text">The best place to find the house you want <br> for your family and future.</div>
+                        <ul class="info-box">
+                            <li><span class="icon flaticon-dimension"></span> <strong>1800</strong> Area Sq-ft</li>
+                            <li><span class="icon flaticon-bed-2"></span> <strong>04</strong> Bed Room</li>
+                            <li><span class="icon flaticon-shower"></span> <strong>02</strong> Toilet</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+            @if ($key == 4)
+            @break
+            @endif
+            @endforeach
+            @else
+            @for ($i = 1; $i <= 5; $i++)
+            <div class="slide" style="background-image:url({{ url('frontend/images/main-slider/full-slide-' . $i . '.jpg') }})">
+                <div class="auto-container">
+                    <div class="content-outer">
+                        <div class="content">
+                            <div class="title sold">Sold Out</div>
+                            <h1>New York Modern Luxury House</h1>
+                            <div class="text">The best place to find the house you want <br> for your family and future.</div>
+                            <ul class="info-box">
+                                <li><span class="icon flaticon-dimension"></span> <strong>1800</strong> Area Sq-ft</li>
+                                <li><span class="icon flaticon-bed-2"></span> <strong>04</strong> Bed Room</li>
+                                <li><span class="icon flaticon-shower"></span> <strong>02</strong> Toilet</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endfor
+            @endif
+    @endswitch
+
+
+    </div>
+
+    <!--Scroll Dwwn Btn-->
+    <div class="mouse-btn-down scroll-to-target" data-target=".search-home-section">
+        <div class="chevron"></div>
+        <div class="chevron"></div>
+        <div class="chevron"></div>
+    </div>
+</section>
+<!-- End Main Slider Two -->
+
+<!-- Search Home Section -->
+<section class="search-home-section">
+    <div class="auto-container">
+        <div class="property-search-tabs tabs-box">
+            <ul class="tab-buttons clearfix">
+                <li data-tab="#sale" class="tab-btn active-btn">Property For Sale</li>
+                <li data-tab="#rent" class="tab-btn">Property On Rent</li>
+            </ul>
+
+            <div class="tabs-content">
+                <!--Tab / Active Tab-->
+                <div class="tab active-tab" id="sale">
+                    <div class="property-search-form">
+                        <form method="post" action="http://ary-themes.com/html/noor_tech/dream-property/index.html">
+                            <div class="row">
+
+                                <!-- Form Group -->
+                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                                    <label>Country</label>
+                                    <select class="custom-select-box">
+                                        <option>Country</option>
+                                        <option>USA</option>
+                                        <option>Canada</option>
+                                        <option>France</option>
+                                        <option>Italy</option>
+                                        <option>UAE</option>
+                                    </select>
+                                </div>
+
+                                <!-- Form Group -->
+                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                                    <label>City</label>
+                                    <select class="custom-select-box">
+                                        <option>Any</option>
+                                        <option>New York</option>
+                                        <option>Los Angeles</option>
+                                        <option>Chicago</option>
+                                        <option>Houston</option>
+                                    </select>
+                                </div>
+
+                                <!-- Form Group -->
+                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                                    <label>search by property id</label>
+                                    <input type="text" name="text" placeholder="Search ID" required>
+                                </div>
+
+                                <!-- Form Group -->
+                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                                    <label>search by Address</label>
+                                    <input type="text" name="text" placeholder="Address" required>
+                                </div>
+
+                                <!-- Form Group -->
+                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                                    <label>Bedroom</label>
+                                    <select class="custom-select-box">
+                                        <option>01</option>
+                                        <option>02</option>
+                                        <option>03</option>
+                                        <option>04</option>
+                                    </select>
+                                </div>
+
+                                <!-- Form Group -->
+                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                                    <label>Washroom</label>
+                                    <select class="custom-select-box">
+                                        <option>01</option>
+                                        <option>02</option>
+                                        <option>03</option>
+                                        <option>04</option>
+                                    </select>
+                                </div>
+
+                                <!-- Form Group -->
+                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                                    <label>Car Space</label>
+                                    <select class="custom-select-box">
+                                        <option>01</option>
+                                        <option>02</option>
+                                        <option>03</option>
+                                        <option>04</option>
+                                    </select>
+                                </div>
+
+                                <!-- Form Group -->
+                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                                    <label>Servant Quarter</label>
+                                    <select class="custom-select-box">
+                                        <option>01</option>
+                                        <option>02</option>
+                                        <option>03</option>
+                                        <option>04</option>
+                                    </select>
+                                </div>
+
+                                <!-- Form Group -->
+                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                    <div class="range-slider-one clearfix">
+                                        <label>Area</label>
+                                        <div class="area-range-slider"></div>
+                                        <div class="input"><input type="text" class="property-amount" name="field-name" readonly></div>
+                                        <div class="title">m<sup>2</sup></div>
+                                    </div>
+                                </div>
+
+                                <!-- Form Group -->
+                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                    <div class="range-slider-one clearfix">
+                                        <label>Price Filter</label>
+                                        <div class="price-range-slider"></div>
+                                        <div class="input"><input type="text" class="price-amount" name="field-name" readonly></div>
+                                        <div class="title">US Doller</div>
+                                    </div>
+                                </div>
+
+                                <!-- Form Group -->
+                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                    <button type="submit" class="theme-btn btn-style-two"><span class="txt">Search Now</span></button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+                <!--Tab -->
+                <div class="tab" id="rent">
+                    <div class="property-search-form">
+                        <form method="post" action="http://ary-themes.com/html/noor_tech/dream-property/index.html">
+
+                            <div class="row">
+
+                                <!-- Form Group -->
+                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                                    <label>Country</label>
+                                    <select class="custom-select-box">
+                                        <option>Country</option>
+                                        <option>USA</option>
+                                        <option>Canada</option>
+                                        <option>France</option>
+                                        <option>Italy</option>
+                                        <option>UAE</option>
+                                    </select>
+                                </div>
+
+                                <!-- Form Group -->
+                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                                    <label>City</label>
+                                    <select class="custom-select-box">
+                                        <option>Any</option>
+                                        <option>New York</option>
+                                        <option>Los Angeles</option>
+                                        <option>Chicago</option>
+                                        <option>Houston</option>
+                                    </select>
+                                </div>
+
+                                <!-- Form Group -->
+                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                                    <label>search by property id</label>
+                                    <input type="text" name="text" placeholder="Search ID" required>
+                                </div>
+
+                                <!-- Form Group -->
+                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                                    <label>search by Address</label>
+                                    <input type="text" name="text" placeholder="Address" required>
+                                </div>
+
+                                <!-- Form Group -->
+                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                                    <label>Bedroom</label>
+                                    <select class="custom-select-box">
+                                        <option>01</option>
+                                        <option>02</option>
+                                        <option>03</option>
+                                        <option>04</option>
+                                    </select>
+                                </div>
+
+                                <!-- Form Group -->
+                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                                    <label>Washroom</label>
+                                    <select class="custom-select-box">
+                                        <option>01</option>
+                                        <option>02</option>
+                                        <option>03</option>
+                                        <option>04</option>
+                                    </select>
+                                </div>
+
+                                <!-- Form Group -->
+                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                                    <label>Car Space</label>
+                                    <select class="custom-select-box">
+                                        <option>01</option>
+                                        <option>02</option>
+                                        <option>03</option>
+                                        <option>04</option>
+                                    </select>
+                                </div>
+
+                                <!-- Form Group -->
+                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                                    <label>Servant Quarter</label>
+                                    <select class="custom-select-box">
+                                        <option>01</option>
+                                        <option>02</option>
+                                        <option>03</option>
+                                        <option>04</option>
+                                    </select>
+                                </div>
+
+                                <!-- Form Group -->
+                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                    <div class="range-slider-one clearfix">
+                                        <label>Area</label>
+                                        <div class="area-range-slider"></div>
+                                        <div class="input"><input type="text" class="property-amount" name="field-name" readonly></div>
+                                        <div class="title">m<sup>2</sup></div>
+                                    </div>
+                                </div>
+
+                                <!-- Form Group -->
+                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                    <div class="range-slider-one clearfix">
+                                        <label>Price Filter</label>
+                                        <div class="price-range-slider"></div>
+                                        <div class="input"><input type="text" class="price-amount" name="field-name" readonly></div>
+                                        <div class="title">US Doller</div>
+                                    </div>
+                                </div>
+
+                                <!-- Form Group -->
+                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                    <button type="submit" class="theme-btn btn-style-two"><span class="txt">Search Now</span></button>
+                                </div>
+
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <!-- SLIDESHOW END -->
+</section>
+<!-- End Search Home Section -->
 
-    <!-- SERVICES LIST & BOOKING FORM -->
-    <div class="impx-content impx-services style2 bg-color-aqua pattern-1">
-        <div class="uk-container">
 
-            <div class="uk-margin-medium-bottom impx-margin-bottom-small" data-uk-grid>
-
-                <!-- Services List -->
-                <div class="uk-width-expand impx-services-list uk-margin-bottom impx-margin-bottom-small">
-                    <h6 class="uk-heading-line uk-text-center uk-light uk-margin-bottom impx-text-white"><span>Our
-                            Services</span></h6>
-                    <div class="uk-child-width-1-4@xl uk-child-width-1-4@l uk-child-width-1-4@m uk-child-width-1-2@s uk-grid-medium"
-                        data-uk-grid>
-                        <div>
-                            <!-- Services Item #1 -->
-                            <div
-                                class="uk-card uk-card-default uk-box-shadow-hover-xlarge impx-service-card uk-padding-bottom">
-                                <div class="uk-card-media-top">
-                                    <img src="{{ url('frontend/images/service-1.jpg') }}" alt="">
-                                </div>
-                                <div class="uk-card-body uk-card-small uk-text-center">
-                                    <div class="uk-card-badge uk-label uk-label-danger bg-color-aqua">Hotel &amp; Resort
-                                    </div>
-                                    <p>Alterum significari idem, ut si diceretur, officia media omnia aut pleraque servantem
-                                        vivere</p>
-                                    <a href="#"
-                                        class="uk-button uk-button-default uk-button-small impx-button gold impx-button-outline outline-gold button-wide impx-button-rounded small-border">Learn
-                                        More &raquo;</a>
-                                </div>
-                            </div>
-                        </div><!-- Services Item #1 End -->
-                        <div>
-                            <!-- Services Item #2 -->
-                            <div class="uk-card uk-card-default uk-box-shadow-hover-xlarge impx-service-card">
-                                <div class="uk-card-media-top">
-                                    <img src="{{ url('frontend/images/service-2.jpg') }}" alt="">
-                                </div>
-                                <div class="uk-card-body uk-card-small uk-text-center">
-                                    <div class="uk-card-badge uk-label uk-label-danger bg-color-aqua">Restaurant</div>
-                                    <p>Alterum significari idem, ut si diceretur, officia media omnia aut pleraque servantem
-                                        vivere</p>
-                                    <a href="#"
-                                        class="uk-button uk-button-default uk-button-small impx-button gold impx-button-outline outline-gold button-wide impx-button-rounded small-border">Learn
-                                        More &raquo;</a>
-                                </div>
-                            </div>
-                        </div><!-- Services Item #2 End -->
-                        <div>
-                            <!-- Services Item #3 -->
-                            <div class="uk-card uk-card-default uk-box-shadow-hover-xlarge impx-service-card">
-                                <div class="uk-card-media-top">
-                                    <img src="{{ url('frontend/images/service-3.jpg') }}" alt="">
-                                </div>
-                                <div class="uk-card-body uk-card-small uk-text-center">
-                                    <div class="uk-card-badge uk-label uk-label-danger bg-color-aqua">Spa</div>
-                                    <p>Alterum significari idem, ut si diceretur, officia media omnia aut pleraque servantem
-                                        vivere</p>
-                                    <a href="#"
-                                        class="uk-button uk-button-default uk-button-small impx-button gold impx-button-outline outline-gold button-wide impx-button-rounded small-border">Learn
-                                        More &raquo;</a>
-                                </div>
-                            </div>
-                        </div><!-- Services Item #3 End -->
-                        <div>
-                            <!-- Services Item #4 -->
-                            <div class="uk-card uk-card-default uk-box-shadow-hover-xlarge impx-service-card">
-                                <div class="uk-card-media-top">
-                                    <img src="{{ url('frontend/images/service-4.jpg') }}" alt="">
-                                </div>
-                                <div class="uk-card-body uk-card-small uk-text-center">
-                                    <div class="uk-card-badge uk-label uk-label-danger bg-color-aqua">Outdoor</div>
-                                    <p>Alterum significari idem, ut si diceretur, officia media omnia aut pleraque servantem
-                                        vivere</p>
-                                    <a href="#"
-                                        class="uk-button uk-button-default uk-button-small impx-button gold impx-button-outline outline-gold button-wide impx-button-rounded small-border">Learn
-                                        More &raquo;</a>
-                                </div>
-                            </div>
-                        </div><!-- Services Item #4 End -->
-                    </div>
-                </div>
-                <!-- Services List End -->
-
+<!-- Property Section Two -->
+<section class="property-section-two">
+		<div class="auto-container">
+			<!--Sec Title-->
+            <div class="sec-title centered">
+            	<h1>About Twilight Camping</h1>
+                <div class="separator"></div>
             </div>
 
-            <!-- Booking Form -->
-            <div class="uk-margin-medium-bottom uk-margin-medium-top">
-                <div class="impx-hp-booking-form impx-margin-top-small">
-                    <h6 class="uk-heading-line uk-text-center uk-margin-small-bottom impx-text-white"><span>Booking
-                            Form</span></h6>
-                    <form
-                        class="uk-child-width-1-6@xl uk-child-width-1-6@l uk-child-width-1-6@m uk-child-width-1-3@s uk-grid-medium"
-                        data-uk-grid>
-                        <div class="uk-form-controls">
-                            <div class="uk-inline">
-                                <label class="uk-form-label  impx-text-white">Email</label>
-                                <span class="uk-form-icon" data-uk-icon="icon: mail"></span>
-                                <input class="uk-input booking-email uk-border-rounded uk-width-1-1" type="text"
-                                    placeholder="your e-mail">
-                            </div>
+			<!-- Five Columns -->
+			<div class="five-col-theme">
+                <div class="row clearfix">
+
+                    <!--Column-->
+                    <article class="column">
+                        <div class="inner-box">
+                            <div class="icon"><span class="flaticon-bed"></span></div>
+                            <h6 class="title">Bedrooms</h6>
+                            <h5 class="count">4</h5>
                         </div>
-                        <div class="uk-form-controls">
-                            <div class="uk-inline">
-                                <label class="uk-form-label impx-text-white">Arrival</label>
-                                <span class="uk-form-icon" data-uk-icon="icon: calendar"></span>
-                                <input class="uk-input booking-arrival uk-border-rounded" type="text"
-                                    placeholder="m/dd/yyyy">
-                            </div>
+                    </article>
+
+                    <!--Column-->
+                    <article class="column">
+                        <div class="inner-box">
+                            <div class="icon"><span class="flaticon-dimension"></span></div>
+                            <h6 class="title">Square Feet</h6>
+                            <h5 class="count">4500</h5>
                         </div>
-                        <div class="uk-form-controls">
-                            <div class="uk-inline">
-                                <label class="uk-form-label impx-text-white">Departure</label>
-                                <span class="uk-form-icon" data-uk-icon="icon: calendar"></span>
-                                <input class="uk-input booking-departure uk-border-rounded" type="text"
-                                    placeholder="m/dd/yyyy">
-                            </div>
+                    </article>
+
+                    <!--Column-->
+                    <article class="column">
+                        <div class="inner-box">
+                            <div class="icon"><span class="flaticon-shower"></span></div>
+                            <h6 class="title">Baths</h6>
+                            <h5 class="count">3</h5>
                         </div>
-                        <div class="uk-form-controls uk-position-relative">
-                            <label class="uk-form-label impx-text-white" for="form-guest-select">Guest</label>
-                            <span class="uk-form-icon select-icon" data-uk-icon="icon: users"></span>
-                            <select class="uk-select uk-border-rounded" id="form-guest-select">
-                                <option value="">Please select...</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
+                    </article>
+
+                    <!--Column-->
+                    <article class="column">
+                        <div class="inner-box">
+                            <div class="icon"><span class="flaticon-calendar-3"></span></div>
+                            <h6 class="title">Year Build</h6>
+                            <h5 class="count">2020</h5>
                         </div>
-                        <div class="uk-form-controls uk-position-relative">
-                            <label class="uk-form-label impx-text-white" for="form-rooms-select">Rooms</label>
-                            <span class="uk-form-icon select-icon" data-uk-icon="icon: album"></span>
-                            <select class="uk-select uk-border-rounded" id="form-rooms-select">
-                                <option value="">Please select...</option>
-                                <option value="room_1">Single</option>
-                                <option value="room_2">Double</option>
-                                <option value="room_3">Primier</option>
-                                <option value="room_4">Deluxe</option>
-                            </select>
+                    </article>
+
+                    <!--Column-->
+                    <article class="column">
+                        <div class="inner-box">
+                            <div class="icon"><span class="flaticon-garage-1"></span></div>
+                            <h6 class="title">Car Parking</h6>
+                            <h5 class="count">2</h5>
                         </div>
-                        <div>
-                            <label class="uk-form-label empty-label">&nbsp;</label>
-                            <button class="uk-button uk-width-1-1">Book Now!</button>
-                        </div>
-                    </form>
+                    </article>
+
                 </div>
             </div>
-            <!-- Booking Form End -->
 
-            <!-- Intro Text -->
-            <div class="uk-flex uk-flex-center uk-position-relative uk-position-z-index" data-uk-grid>
-                <div class="uk-width-2-3@xl uk-width-2-3@l uk-width-1-1@m uk-width-1-1@s">
-                    <div class="impx-intro uk-text-center uk-light uk-margin-remove-bottom">
-                        <h2 class="uk-margin-remove-vertical uk-margin-remove-bottom">Choose the Best Rooms &amp; Make
-                            Reservation </h2>
-                        <p class="impx-text-large uk-margin-remove-bottom uk-margin-small-top">Etenim semper illud extra
-                            arte comprehenditur utebare non numquam.</p>
-                    </div>
-                </div>
+		</div>
+	</section>
+	<!-- End Property Section Two -->
+
+<!-- Recent Properties Section -->
+<section class="recent-properties-section">
+        <div class="auto-container">
+            <div class="sec-title centered">
+                <h1>Our Tent</h1>
+				<div class="separator"></div>
             </div>
-            <!-- Intro Text End -->
 
+			<div class="row clearfix">
+
+				<!-- Property Block -->
+				<div class="property-block-two col-lg-6 col-md-12 col-sm-12">
+					<div class="inner-box">
+						<div class="clearfix">
+							<div class="image-box col-lg-6 col-md-12 col-sm-12">
+								<figure class="image"><img src="{{ url('frontend/images/resource/property-4.jpg')}}" alt=""></figure>
+								<span class="for">FOR SALE</span>
+								<span class="featured">FEATURED</span>
+							</div>
+							<div class="lower-content col-lg-6 col-md-12 col-sm-12">
+								<ul class="tags">
+									<li><a href="properties-detail.html">Apartment</a>,</li>
+									<li><a href="properties-detail.html">Bar</a>,</li>
+									<li><a href="properties-detail.html">House</a></li>
+								</ul>
+								<h5><a href="properties-detail.html">Single Flat Burj Al-Arab.</a></h5>
+								<div class="lucation"><i class="la la-map-marker"></i> Orland Park, IL 785, Chicago, USA</div>
+								<ul class="property-info clearfix">
+									<li><i class="flaticon-dimension"></i> 356 Sq-Ft</li>
+									<li><i class="flaticon-bed"></i> 1 Bedrooms</li>
+									<li><i class="flaticon-garage-1"></i> 1 Garage</li>
+									<li><i class="flaticon-toilet"></i> 2 Bathroom</li>
+								</ul>
+								<div class="property-price clearfix">
+                                <div class="read-more"><a href="{{ route('tent.details')}}" class="theme-btn">More Detail</a></div>
+									<div class="price">$ 14,95,000</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Property Block -->
+				<div class="property-block-two col-lg-6 col-md-12 col-sm-12">
+					<div class="inner-box">
+						<div class="clearfix">
+							<div class="image-box col-lg-6 col-md-12 col-sm-12">
+								<figure class="image"><img src="{{url('frontend/images/resource/property-5.jpg')}}" alt=""></figure>
+								<span class="for">FOR Rent</span>
+								<span class="featured">FEATURED</span>
+							</div>
+							<div class="lower-content col-lg-6 col-md-12 col-sm-12">
+								<ul class="tags">
+									<li><a href="properties-detail.html">Apartment</a>,</li>
+									<li><a href="properties-detail.html">Bar</a>,</li>
+									<li><a href="properties-detail.html">House</a></li>
+								</ul>
+								<h5><a href="properties-detail.html">California New Villas.</a></h5>
+								<div class="lucation"><i class="la la-map-marker"></i> Makine Park, PM 700, Califonia</div>
+								<ul class="property-info clearfix">
+									<li><i class="flaticon-dimension"></i> 356 Sq-Ft</li>
+									<li><i class="flaticon-bed"></i> 3 Bedrooms</li>
+									<li><i class="flaticon-garage-1"></i> 1 Garage</li>
+									<li><i class="flaticon-toilet"></i> 3 Bathroom</li>
+								</ul>
+								<div class="property-price clearfix">
+									<div class="read-more"><a href="properties-detail.html" class="theme-btn">More Detail</a></div>
+									<div class="price">$ 10,00,000</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Property Block -->
+				<div class="property-block-two col-lg-6 col-md-12 col-sm-12">
+					<div class="inner-box">
+						<div class="clearfix">
+							<div class="image-box col-lg-6 col-md-12 col-sm-12">
+								<figure class="image"><img src="{{ url('frontend/images/resource/property-6.jpg')}}" alt=""></figure>
+								<span class="for">Available</span>
+							</div>
+							<div class="lower-content col-lg-6 col-md-12 col-sm-12">
+								<ul class="tags">
+									<li><a href="properties-detail.html">Apartment</a>,</li>
+									<li><a href="properties-detail.html">Bar</a>,</li>
+									<li><a href="properties-detail.html">House</a></li>
+								</ul>
+								<h5><a href="properties-detail.html">Apartment 1243, Sydney.</a></h5>
+								<div class="lucation"><i class="la la-map-marker"></i> viewport Point, 987456, Australia.</div>
+								<ul class="property-info clearfix">
+									<li><i class="flaticon-dimension"></i> 356 Sq-Ft</li>
+									<li><i class="flaticon-bed"></i> 2 Bedrooms</li>
+									<li><i class="flaticon-garage-1"></i> 2 Garage</li>
+									<li><i class="flaticon-toilet"></i> 1 Bathroom</li>
+								</ul>
+								<div class="property-price clearfix">
+									<div class="read-more"><a href="properties-detail.html" class="theme-btn">More Detail</a></div>
+									<div class="price">$ 24,95,000</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Property Block -->
+				<div class="property-block-two col-lg-6 col-md-12 col-sm-12">
+					<div class="inner-box">
+						<div class="clearfix">
+							<div class="image-box col-lg-6 col-md-12 col-sm-12">
+								<figure class="image"><img src="{{ url('frontend/images/resource/property-7.jpg')}}" alt=""></figure>
+								<span class="for sold">Sold Done</span>
+							</div>
+							<div class="lower-content col-lg-6 col-md-12 col-sm-12">
+								<ul class="tags">
+									<li><a href="properties-detail.html">Apartment</a>,</li>
+									<li><a href="properties-detail.html">Bar</a>,</li>
+									<li><a href="properties-detail.html">House</a></li>
+								</ul>
+								<h5><a href="properties-detail.html">Commercial New Building.</a></h5>
+								<div class="lucation"><i class="la la-map-marker"></i>Gold Land Commercial Dubai</div>
+								<ul class="property-info clearfix">
+									<li><i class="flaticon-dimension"></i> 356 Sq-Ft</li>
+									<li><i class="flaticon-bed"></i> 1 Bedrooms</li>
+									<li><i class="flaticon-garage-1"></i> 1 Garage</li>
+									<li><i class="flaticon-toilet"></i> 2 Bathroom</li>
+								</ul>
+								<div class="property-price clearfix">
+									<div class="read-more"><a href="properties-detail.html" class="theme-btn">More Detail</a></div>
+									<div class="price">$ 14,95,000</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<!-- End Recent Properties Section -->
+
+
+<!-- Gallery Section -->
+<section class="gallery-section">
+    <div class="auto-container">
+        <!-- Sec Title -->
+        <div class="sec-title centered">
+            <h1>Our Properties Gallery</h1>
+            <div class="separator"></div>
         </div>
-    </div>
-    <!-- SERVICES LIST & BOOKING FORM END -->
 
-    <!-- ROOMS LIST -->
-    <div
-        class="uk-position-relative impx-section-rooms bg1 uk-position-relative uk-background-fixed uk-background-center-center uk-height-1-1">
-        <div class="impx-overlay"></div>
-
-        <div class="uk-container">
-            <div class="uk-position-relative uk-visible-toggle">
-                <ul class="uk-child-width-1-2@xl uk-child-width-1-2@l uk-child-width-1-2@m uk-child-width-1-1@s uk-grid-collapse uk-box-shadow-large uk-grid-match impx-rooms-grid"
-                    data-uk-grid>
-                    <li>
-                        <!-- Room Item #1 -->
-                        <div class="impx-room-item medium">
-                            <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s" data-uk-grid>
-                                <div class="uk-card-media-left uk-cover-container uk-position-relative">
-                                    <canvas width="290" height="180"></canvas>
-                                    <img src="{{ url('frontend/images/rooms/room-square-1.jpg') }}" alt="" data-uk-cover>
-                                    <div class="impx-overlay light overlay-squared padding-xwide"></div>
-                                </div>
-                                <div class="uk-card-body uk-position-relative impx-padding-medium">
-                                    <div class="uk-card-header uk-padding-remove-horizontal">
-                                        <h4 class="uk-card-title uk-margin-remove-bottom">Single Room</h4>
-                                        <p class="uk-text-meta uk-margin-remove-top">Subtitle Goes Here</p>
-                                    </div>
-                                    <span class="uk-card-badge uk-label bg-color-aqua">from $50/night</span>
-                                    <ul class="uk-list room-fac">
-                                        <li><span class="impx-text-aqua" data-uk-icon="icon: check; ratio: 1;"></span>
-                                            Beatus in maximarum timore</li>
-                                        <li><span class="impx-text-aqua" data-uk-icon="icon: check; ratio: 1;"></span>
-                                            Oculis Compensabatur</li>
-                                        <li><span class="impx-text-aqua" data-uk-icon="icon: check; ratio: 1;"></span>
-                                            Dolorisnos veriusque nihil</li>
-                                    </ul>
-                                    <div class="uk-card-footer uk-padding-remove-horizontal uk-padding-remove-bottom">
-                                        <a href="room-detail.html" class="uk-button uk-button-text impx-text-aqua">Read
-                                            more &raquo;</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li><!-- Room Item #1 End -->
-                    <li>
-                        <!-- Room Item #2 -->
-                        <div class="impx-room-item medium">
-                            <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s" data-uk-grid>
-                                <div class="uk-card-media-left uk-cover-container uk-position-relative">
-                                    <canvas width="290" height="180"></canvas>
-                                    <img src="{{ url('frontend/images/rooms/room-square-5.jpg') }}" alt="" data-uk-cover>
-                                    <div class="impx-overlay light overlay-squared padding-xwide"></div>
-                                </div>
-                                <div class="uk-card-body uk-position-relative impx-padding-medium">
-                                    <div class="uk-card-header uk-padding-remove-horizontal">
-                                        <h4 class="uk-card-title uk-margin-remove-bottom">Double Room</h4>
-                                        <p class="uk-text-meta uk-margin-remove-top">Subtitle Goes Here</p>
-                                    </div>
-                                    <span class="uk-card-badge uk-label bg-color-aqua">from $80/night</span>
-                                    <ul class="uk-list room-fac">
-                                        <li><span class="impx-text-aqua" data-uk-icon="icon: check; ratio: 1;"></span>
-                                            Beatus in maximarum timore</li>
-                                        <li><span class="impx-text-aqua" data-uk-icon="icon: check; ratio: 1;"></span>
-                                            Oculis Compensabatur</li>
-                                        <li><span class="impx-text-aqua" data-uk-icon="icon: check; ratio: 1;"></span>
-                                            Dolorisnos veriusque nihil</li>
-                                    </ul>
-                                    <div class="uk-card-footer uk-padding-remove-horizontal uk-padding-remove-bottom">
-                                        <a href="room-detail.html" class="uk-button uk-button-text impx-text-aqua">Read
-                                            more &raquo;</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li><!-- Room Item #2 End -->
-                    <li>
-                        <!-- Room Item #3 -->
-                        <div class="impx-room-item medium">
-                            <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s" data-uk-grid>
-                                <div class="uk-card-body uk-position-relative impx-padding-medium">
-                                    <div class="uk-card-header uk-padding-remove-horizontal">
-                                        <h4 class="uk-card-title uk-margin-remove-bottom">Premiere Room</h4>
-                                        <p class="uk-text-meta uk-margin-remove-top">Subtitle Goes Here</p>
-                                    </div>
-                                    <span class="uk-card-badge uk-label bg-color-aqua">from $100/night</span>
-                                    <ul class="uk-list room-fac">
-                                        <li><span class="impx-text-aqua" data-uk-icon="icon: check; ratio: 1;"></span>
-                                            Beatus in maximarum timore</li>
-                                        <li><span class="impx-text-aqua" data-uk-icon="icon: check; ratio: 1;"></span>
-                                            Oculis Compensabatur</li>
-                                        <li><span class="impx-text-aqua" data-uk-icon="icon: check; ratio: 1;"></span>
-                                            Dolorisnos veriusque nihil</li>
-                                    </ul>
-                                    <div class="uk-card-footer uk-padding-remove-horizontal uk-padding-remove-bottom">
-                                        <a href="room-detail.html" class="uk-button uk-button-text impx-text-aqua">Read
-                                            more &raquo;</a>
-                                    </div>
-                                </div>
-                                <div class="uk-card-media-right uk-cover-container uk-position-relative">
-                                    <canvas width="290" height="180"></canvas>
-                                    <img src="{{ url('frontend/images/rooms/room-square-3.jpg') }}" alt="" data-uk-cover>
-                                    <div class="impx-overlay light overlay-squared padding-xwide"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </li><!-- Room Item #3 End -->
-                    <li>
-                        <!-- Room Item #4 -->
-                        <div class="impx-room-item medium">
-                            <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s" data-uk-grid>
-                                <div class="uk-card-body uk-position-relative impx-padding-medium">
-                                    <div class="uk-card-header uk-padding-remove-horizontal">
-                                        <h4 class="uk-card-title uk-margin-remove-bottom">Deluxe Room</h4>
-                                        <p class="uk-text-meta uk-margin-remove-top">Subtitle Goes Here</p>
-                                    </div>
-                                    <span class="uk-card-badge uk-label bg-color-aqua">from $150/night</span>
-                                    <ul class="uk-list room-fac">
-                                        <li><span class="impx-text-aqua" data-uk-icon="icon: check; ratio: 1;"></span>
-                                            Beatus in maximarum timore</li>
-                                        <li><span class="impx-text-aqua" data-uk-icon="icon: check; ratio: 1;"></span>
-                                            Oculis Compensabatur</li>
-                                        <li><span class="impx-text-aqua" data-uk-icon="icon: check; ratio: 1;"></span>
-                                            Dolorisnos veriusque nihil</li>
-                                    </ul>
-                                    <div class="uk-card-footer uk-padding-remove-horizontal uk-padding-remove-bottom">
-                                        <a href="room-detail.html" class="uk-button uk-button-text impx-text-aqua">Read
-                                            more &raquo;</a>
-                                    </div>
-                                </div>
-                                <div class="uk-card-media-right uk-cover-container uk-position-relative">
-                                    <canvas width="290" height="180"></canvas>
-                                    <img src="{{ url('frontend/images/rooms/room-square-4.jpg') }}" alt="" data-uk-cover>
-                                    <div class="impx-overlay light overlay-squared padding-xwide"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </li><!-- Room Item #4 End -->
+        <!--MixitUp Galery-->
+        <div class="mixitup-gallery">
+            <!--Filter-->
+            <div class="filters text-center clearfix">
+                <ul class="filter-tabs filter-btns clearfix">
+                    <li class="active filter" data-role="button" data-filter="all">View All</li>
+                    <li class="filter" data-role="button" data-filter=".appartment">Appartments</li>
+                    <li class="filter" data-role="button" data-filter=".house">House</li>
+                    <li class="filter" data-role="button" data-filter=".form-house">Form House</li>
+                    <li class="filter" data-role="button" data-filter=".commercial">Commercials</li>
+                    <li class="filter" data-role="button" data-filter=".restaurent">Restaurent</li>
                 </ul>
             </div>
-        </div>
 
-    </div>
-    <!-- ROOMS LIST END -->
+            <div class="filter-list row clearfix">
 
-    <!-- WHY CHOOSE US? -->
-    <div class="uk-padding-large uk-padding-remove-horizontal uk-position-relative bg-img3 impx-features">
-        <div class="uk-container">
-
-            <div class="uk-width-3-4@xl uk-width-3-4@l uk-width-1-1@m uk-width-1-1@s uk-margin-medium-top uk-position-relative uk-height-1-1 impx-features-content"
-                data-uk-grid>
-
-                <!-- Intro Text -->
-                <div class="impx-intro uk-text-left">
-                    <h2 class="uk-margin-remove-bottom uk-margin-small-top">Why Choose Us?</h2>
-                    <p class="uk-margin-remove uk-text-uppercase">A Camp You Can Never Camp Before</p>
-                </div>
-                <!-- Intro Text End -->
-                <ul class="uk-child-width-1-3@xl uk-child-width-1-3@l uk-child-width-1-3@m uk-child-width-1-2@s impx-features-hl uk-grid-medium uk-grid-match uk-margin-top impx-margin-top-small"
-                    data-uk-grid>
-                    <li>
-                        <!-- Reason Item #1 -->
-                        <div
-                            class="uk-card uk-card-default uk-card-body uk-box-shadow-medium color1 impx-feature-item uk-position-relative">
-                            <h6 class="uk-margin-remove-top uk-margin-bottom impx-text-white">Best Value for Family</h6>
-                            <span data-uk-icon="icon: users; ratio: 8" class="feature-icon"></span>
-                        </div>
-                    </li><!-- Reason Item #1 End -->
-                    <li>
-                        <!-- Reason Item #2 -->
-                        <div
-                            class="uk-card uk-card-default uk-card-body uk-box-shadow-medium color2 impx-feature-item uk-position-relative">
-                            <h6 class="uk-margin-remove-top uk-margin-bottom impx-text-white">Services Priority</h6>
-
-                            <span data-uk-icon="icon: bell; ratio: 8" class="feature-icon"></span>
-                        </div>
-                    </li><!-- Reason Item #2 End -->
-                    <li>
-                        <!-- Reason Item #3 -->
-                        <div
-                            class="uk-card uk-card-default uk-card-body uk-box-shadow-medium color3 impx-feature-item uk-position-relative">
-                            <h6 class="uk-margin-remove-top uk-margin-bottom impx-text-white">Best Facilities</h6>
-
-                            <span data-uk-icon="icon: star; ratio: 8" class="feature-icon"></span>
-                        </div>
-                    </li><!-- Reason Item #3 End -->
-                    <li>
-                        <!-- Reason Item #4 -->
-                        <div
-                            class="uk-card uk-card-default uk-card-body uk-box-shadow-medium color4 impx-feature-item uk-position-relative">
-                            <h6 class="uk-margin-remove-top uk-margin-bottom impx-text-white">Satisfation Guarantee</h6>
-
-                            <span data-uk-icon="icon: heart; ratio: 8" class="feature-icon"></span>
-                        </div>
-                    </li><!-- Reason Item #4 End -->
-                    <li>
-                        <!-- Reason Item #5 -->
-                        <div
-                            class="uk-card uk-card-default uk-card-body uk-box-shadow-medium color5 impx-feature-item uk-position-relative">
-                            <h6 class="uk-margin-remove-top uk-margin-bottom impx-text-white">Best Camps In Kasol</h6>
-
-                            <span data-uk-icon="icon: image; ratio: 8" class="feature-icon"></span>
-                        </div>
-                    </li><!-- Reason Item #5 End -->
-                    <li>
-                        <!-- Reason Item #6 -->
-                        <div
-                            class="uk-card uk-card-default uk-card-body uk-box-shadow-medium color6 impx-feature-item uk-position-relative">
-                            <h6 class="uk-margin-remove-top uk-margin-bottom impx-text-white">Enjoy Your Time</h6>
-
-                            <span data-uk-icon="icon: happy; ratio: 8" class="feature-icon"></span>
-                        </div>
-                    </li><!-- Reason Item #6 End -->
-                </ul>
-
-            </div>
-
-        </div>
-    </div>
-    <!-- WHY CHOOSE US? END -->
-
-    <!-- PRICING PLANS -->
-    <div class="uk-padding uk-padding-remove-horizontal impx-section-pricing">
-        <div class="uk-container">
-            <div class="uk-flex uk-flex-center uk-margin-medium-bottom impx-margin-bottom-small">
-                <!-- Pricing Intro -->
-                <div class="uk-width-2-3@xl uk-width-2-3@l uk-width-2-3@m uk-width-1-1@s uk-text-center hp-offer-intro">
-                    <h2 class="uk-margin-small-bottom">Our Special Offers</h2>
-                    <p class="impx-text-large uk-margin-remove-top uk-margin-small-bottom">Eiuro, inquit adridens, iniquum,
-                        hac quidem de re Conferam tecum, Hanc quoque iucunditatem, si vis, <span
-                            class="uk-label uk-label-danger uk-text-bold bg-color-gold">$299 for 3 Nights</span> transfer
-                        in animum; Sed quanta sit alias?</p>
-                </div>
-                <!-- Pricing Intro End -->
-            </div>
-
-            <div class="uk-flex uk-flex-center uk-margin-bottom">
-                <div class="uk-width-5-6@xl uk-width-5-6@l uk-width-5-6@m uk-width-1-1@s impx-pricing-list" data-uk-grid>
-
-                    <ul class="uk-child-width-1-3@xl uk-child-width-1-3@l uk-child-width-1-3@m uk-child-width-1-3@s uk-grid-collapse impx-promo-pricing-list"
-                        data-uk-grid>
-                        <li class="uk-position-relative">
-                            <!-- Pricing Item #1-->
-                            <div class="impx-promo-pricing uk-box-shadow-large uk-light">
-                                <div class="uk-position-relative">
-                                    <img src="{{ url('frontend/images/pricing-img-1.jpg') }}" alt="">
-                                    <div class="impx-overlay light"></div>
-                                </div>
-                                <div class="uk-position-relative uk-padding bg-color-gold">
-                                    <h4 class="uk-heading-line uk-margin-small-bottom"><span>Silver</span></h4>
-                                    <span class="uk-label uk-label-success impx-text-gold uk-text-bold">$299 for 3
-                                        Nights</span>
-                                    <ul class="uk-list">
-                                        <li><i class="fa fa-bed"></i> Quae qui non vident, nihil</li>
-                                        <li><i class="fa fa-coffee"></i> praeclare inter se cohaerere</li>
-                                        <li><i class="fa fa-group"></i> Tenesne igitur, inquam</li>
-                                    </ul>
-                                    <a href="#" class="uk-button impx-button small impx-button-outline small-border">View
-                                        Detail <i class="fa fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </li><!-- Pricing Item #1 End -->
-                        <li class="uk-position-relative uk-position-z-index">
-                            <!-- Pricing Item #2 -->
-                            <div class="impx-promo-pricing uk-box-shadow-xlarge uk-light featured">
-                                <div class="uk-position-relative">
-                                    <img src="{{ url('frontend/images/pricing-img-2.jpg') }}" alt="">
-                                    <div class="impx-overlay light"></div>
-                                </div>
-                                <div class="uk-position-relative uk-padding bg-color-aqua">
-                                    <h3 class="uk-heading-line uk-margin-small-bottom"><span>Gold</span></h3>
-                                    <span class="uk-label uk-label-success impx-text-aqua uk-text-bold">$399 for 3
-                                        Nights</span>
-                                    <ul class="uk-list uk-list-large">
-                                        <li><i class="fa fa-bed"></i> Quae qui non vident, nihil</li>
-                                        <li><i class="fa fa-coffee"></i> praeclare inter se cohaerere</li>
-                                        <li><i class="fa fa-group"></i> Tenesne igitur, inquam</li>
-                                    </ul>
-                                    <a href="#" class="uk-button impx-button small impx-button-outline small-border">View
-                                        Detail <i class="fa fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </li><!-- Pricing Item #2 End -->
-                        <li class="uk-position-relative">
-                            <!-- Pricing Item #3 -->
-                            <div class="impx-promo-pricing uk-box-shadow-large uk-light">
-                                <div class="uk-position-relative">
-                                    <img src="{{ url('frontend/images/pricing-img-4.jpg') }}" alt="">
-                                    <div class="impx-overlay light"></div>
-                                </div>
-                                <div class="uk-position-relative uk-padding bg-color-gold">
-                                    <h4 class="uk-heading-line uk-margin-small-bottom"><span>Diamond</span></h4>
-                                    <span class="uk-label uk-label-success impx-text-gold uk-text-bold">$499 for 3
-                                        Nights</span>
-                                    <ul class="uk-list">
-                                        <li><i class="fa fa-bed"></i> Quae qui non vident, nihil</li>
-                                        <li><i class="fa fa-coffee"></i> praeclare inter se cohaerere</li>
-                                        <li><i class="fa fa-group"></i> Tenesne igitur, inquam</li>
-                                    </ul>
-                                    <a href="#" class="uk-button impx-button small impx-button-outline small-border">View
-                                        Detail <i class="fa fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </li><!-- Pricing Item #3 End -->
-                    </ul>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- PRICING PLANS END -->
-
-    <!-- TESTIMONIALS CAROUSEL -->
-    <div
-        class="uk-padding uk-padding-remove-horizontal uk-position-relative impx-section-testimonial uk-background-fixed uk-background-center-center uk-height-1-1">
-        <div class="impx-overlay"></div>
-        <div class="uk-container">
-
-            <div class="uk-flex uk-flex-right uk-margin-bottom">
-
-                <div class="uk-width-3-5@xl uk-width-3-5@l uk-width-4-5@m">
-
-                    <div class="impx-intro uk-text-right uk-light uk-position-relative">
-                        <h2 class="uk-margin-small-bottom">Testimonials</h2>
-                        <p class="impx-text-large uk-margin-remove-top uk-margin-medium-bottom">Lorem ipsum dolor sit amet,
-                            consectetur adipiscing elit. Si id dicis, vicimus. Sed ad illum redeo. Quia nec honesto quic
-                            quam honestius nec turpi turpius.</p>
-                    </div>
-
-                    <!-- Testimonials List -->
-                    <div class="impx-testimonial-list">
-                        <div data-uk-slider="{autoplay: true, finite: true}">
-                            <div class="uk-position-relative uk-visible-toggle uk-light">
-                                <ul class="uk-slider-items uk-child-width-1-1" data-uk-grid>
-                                    <li class="uk-padding uk-padding-remove-vertical">
-                                        <!-- Testimonial List Item 1 -->
-                                        <div class="impx-testimonial-item impx-contrast">
-                                            <div class="impx-testi-container">
-                                                <div class="impx-testi-text">
-                                                    <blockquote>
-                                                        <p>Hinc ceteri particulas arripere conati suam quisque videro voluit
-                                                            afferre sententiam. Erit enim mecum, si tecum erit conantur!
-                                                            nostrum! Incendi igitur eos, qui audiunt, vides prima si
-                                                            dederis, danda sunt omnia</p>
-                                                    </blockquote>
-                                                </div>
-                                                <div class="uk-text-center">
-                                                    <div class="impx-testi-name">
-                                                        <p>Mrs. Smith Yan</p>
-                                                    </div>
-                                                    <div class="impx-company-name">
-                                                        <p class="bg-color-gold">Book Author</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="impx-testi-image"><img
-                                                    src=" {{ url('frontend/images/peoples/testi-people1.jpg') }}"
-                                                    alt="People 1" /></div>
-                                        </div>
-                                    </li><!-- Testimonial List Item 1 End -->
-                                    <li class="uk-padding uk-padding-remove-vertical">
-                                        <!-- Testimonial List Item 2 -->
-                                        <div class="impx-testimonial-item impx-contrast">
-                                            <div class="impx-testi-container">
-                                                <div class="impx-testi-text">
-                                                    <blockquote>
-                                                        <p>We’re a fit and experienced hiking group and Gary worked with us
-                                                            to create a hiking experience customized to challenge the group
-                                                            perfectly. We will choose you again.</p>
-                                                    </blockquote>
-                                                </div>
-                                                <div class="uk-text-center">
-                                                    <div class="impx-testi-name">
-                                                        <p>Mrs. Smith Yan</p>
-                                                    </div>
-                                                    <div class="impx-company-name">
-                                                        <p class="bg-color-gold">Book Author</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="impx-testi-image"><img
-                                                    src="{{ url('frontend/images/peoples/testi-people2.jpg') }}"
-                                                    alt="People 1" /></div>
-                                        </div>
-                                    </li><!-- Testimonial List Item 2 End -->
-                                    <li class="uk-padding uk-padding-remove-vertical">
-                                        <!-- Testimonial List Item 3 -->
-                                        <div class="impx-testimonial-item impx-contrast">
-                                            <div class="impx-testi-container">
-                                                <div class="impx-testi-text">
-                                                    <blockquote>
-                                                        <p>Hinc ceteri particulas arripere conati suam quisque videro voluit
-                                                            afferre sententiam. Erit enim mecum, si tecum erit conantur!
-                                                            nostrum! Incendi igitur eos, qui audiunt, vides prima si
-                                                            dederis, danda sunt omnia</p>
-                                                    </blockquote>
-                                                </div>
-                                                <div class="uk-text-center">
-                                                    <div class="impx-testi-name">
-                                                        <p>Mrs. Smith Yan</p>
-                                                    </div>
-                                                    <div class="impx-company-name">
-                                                        <p class="bg-color-gold">Book Author</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="impx-testi-image"><img
-                                                    src="{{ url('frontend/images/peoples/testi-people3.jpg') }}"
-                                                    alt="People 1" /></div>
-                                        </div>
-                                    </li><!-- Testimonial List Item 3 End -->
-                                    <li class="uk-padding uk-padding-remove-vertical">
-                                        <!-- Testimonial List Item 4 -->
-                                        <div class="impx-testimonial-item impx-contrast">
-                                            <div class="impx-testi-container">
-                                                <div class="impx-testi-text">
-                                                    <blockquote>
-                                                        <p>Hinc ceteri particulas arripere conati suam quisque videro voluit
-                                                            afferre sententiam. Erit enim mecum, si tecum erit conantur!
-                                                            nostrum! Incendi igitur eos, qui audiunt, vides prima si
-                                                            dederis, danda sunt omnia</p>
-                                                    </blockquote>
-                                                </div>
-                                                <div class="uk-text-center">
-                                                    <div class="impx-testi-name">
-                                                        <p>Mrs. Smith Yan</p>
-                                                    </div>
-                                                    <div class="impx-company-name">
-                                                        <p class="bg-color-gold">Book Author</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="impx-testi-image"><img
-                                                    src="{{ url('frontend/images/peoples/testi-people4.jpg') }}"
-                                                    alt="People 1" /></div>
-                                        </div>
-                                    </li><!-- Testimonial List Item 4 End -->
-                                </ul>
-
-                                <!-- Testimonial Nav -->
-                                <a class="uk-position-center-left  uk-hidden-hover" href="#" data-uk-slidenav-previous
-                                    data-uk-slider-item="previous"></a>
-                                <a class="uk-position-center-right uk-hidden-hover" href="#" data-uk-slidenav-next
-                                    data-uk-slider-item="next"></a>
-                                <!-- Testimonial Nav End -->
-
+                <!-- Project item -->
+                <div class="gallery-item mix all restaurent col-lg-4 col-md-6 col-sm-12">
+                    <div class="image-box">
+                        <figure class="image"><img src="{{ url('frontend/images/gallery/7.jpg')}}" alt=""></figure>
+                        <div class="overlay-box">
+                            <div class="icon-box">
+                                <a href="properties-detail.html" class="link"><span class="icon fa flaticon-unlink"></span></a>
+                                <a href="{{ url('frontend/images/gallery/1.jpg')}}" class="link" data-fancybox="gallery" data-caption=""><span class="icon fa fa-expand-arrows-alt"></span></a>
+                                <h3><a href="properties-detail.html">France Property</a></h3>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Project item -->
+                <div class="gallery-item mix all restaurent commercial col-lg-4 col-md-6 col-sm-12">
+                    <div class="image-box">
+                        <figure class="image"><img src="{{ url('frontend/images/gallery/8.jpg')}}" alt=""></figure>
+                        <div class="overlay-box">
+                            <div class="icon-box">
+                                <a href="properties-detail.html" class="link"><span class="icon fa flaticon-unlink"></span></a>
+                                <a href="images/gallery/8.jpg" class="link" data-fancybox="gallery" data-caption=""><span class="icon fa fa-expand-arrows-alt"></span></a>
+                                <h3><a href="properties-detail.html">Commerical Building</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project item -->
+                <div class="gallery-item mix all restaurent house col-lg-4 col-md-6 col-sm-12">
+                    <div class="image-box">
+                        <figure class="image"><img src="{{ url('frontend/images/gallery/9.jpg')}}" alt=""></figure>
+                        <div class="overlay-box">
+                            <div class="icon-box">
+                                <a href="properties-detail.html" class="link"><span class="icon fa flaticon-unlink"></span></a>
+                                <a href="images/gallery/9.jpg" class="link" data-fancybox="gallery" data-caption=""><span class="icon fa fa-expand-arrows-alt"></span></a>
+                                <h3><a href="properties-detail.html">News Flats Property</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project item -->
+                <div class="gallery-item mix all appartment commercial col-lg-4 col-md-6 col-sm-12">
+                    <div class="image-box">
+                        <figure class="image"><img src="{{ url('frontend/images/gallery/10.jpg')}}" alt=""></figure>
+                        <div class="overlay-box">
+                            <div class="icon-box">
+                                <a href="properties-detail.html" class="link"><span class="icon fa flaticon-unlink"></span></a>
+                                <a href="images/gallery/10.jpg" class="link" data-fancybox="gallery" data-caption=""><span class="icon fa fa-expand-arrows-alt"></span></a>
+                                <h3><a href="properties-detail.html">House For Sale Property</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project item -->
+                <div class="gallery-item mix all restaurent form-house house col-lg-4 col-md-6 col-sm-12">
+                    <div class="image-box">
+                        <figure class="image"><img src="{{ url('frontend/images/gallery/11.jpg')}}" alt=""></figure>
+                        <div class="overlay-box">
+                            <div class="icon-box">
+                                <a href="properties-detail.html" class="link"><span class="icon fa flaticon-unlink"></span></a>
+                                <a href="images/gallery/11.jpg" class="link" data-fancybox="gallery" data-caption=""><span class="icon fa fa-expand-arrows-alt"></span></a>
+                                <h3><a href="properties-detail.html">New Villas</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project item -->
+                <div class="gallery-item mix all restaurent form-house col-lg-4 col-md-6 col-sm-12">
+                    <div class="image-box">
+                        <figure class="image"><img src="images/gallery/12.jpg" alt=""></figure>
+                        <div class="overlay-box">
+                            <div class="icon-box">
+                                <a href="properties-detail.html" class="link"><span class="icon fa flaticon-unlink"></span></a>
+                                <a href="images/gallery/12.jpg" class="link" data-fancybox="gallery" data-caption=""><span class="icon fa fa-expand-arrows-alt"></span></a>
+                                <h3><a href="properties-detail.html">Form House</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project item -->
+                <div class="gallery-item mix all form-house col-lg-4 col-md-6 col-sm-12">
+                    <div class="image-box">
+                        <figure class="image"><img src="images/gallery/13.jpg" alt=""></figure>
+                        <div class="overlay-box">
+                            <div class="icon-box">
+                                <a href="properties-detail.html" class="link"><span class="icon fa flaticon-unlink"></span></a>
+                                <a href="images/gallery/13.jpg" class="link" data-fancybox="gallery" data-caption=""><span class="icon fa fa-expand-arrows-alt"></span></a>
+                                <h3><a href="properties-detail.html">German Commercial Property</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project item -->
+                <div class="gallery-item mix all house commercial col-lg-4 col-md-6 col-sm-12">
+                    <div class="image-box">
+                        <figure class="image"><img src="images/gallery/14.jpg" alt=""></figure>
+                        <div class="overlay-box">
+                            <div class="icon-box">
+                                <a href="properties-detail.html" class="link"><span class="icon fa flaticon-unlink"></span></a>
+                                <a href="images/gallery/14.jpg" class="link" data-fancybox="gallery" data-caption=""><span class="icon fa fa-expand-arrows-alt"></span></a>
+                                <h3><a href="properties-detail.html">New York Houses</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project item -->
+                <div class="gallery-item mix all form-house commercial col-lg-4 col-md-6 col-sm-12">
+                    <div class="image-box">
+                        <figure class="image"><img src="images/gallery/15.jpg" alt=""></figure>
+                        <div class="overlay-box">
+                            <div class="icon-box">
+                                <a href="properties-detail.html" class="link"><span class="icon fa flaticon-unlink"></span></a>
+                                <a href="images/gallery/15.jpg" class="link" data-fancybox="gallery" data-caption=""><span class="icon fa fa-expand-arrows-alt"></span></a>
+                                <h3><a href="properties-detail.html">Sydney Form House</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Button Box -->
+            <div class="btn-box text-center">
+                <a href="#" class="theme-btn btn-style-two"><span class="txt">View More</span></a>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<!-- End Gallery Section -->
+
+<!--Talk Section-->
+<section class="talk-section">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!--Content Column-->
+            <div class="content-column col-lg-8 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    <div class="icon-box">
+                        <span class="icon flaticon-key"></span>
+                    </div>
+                    <h3>Let’s talk about our new properies.</h3>
+                    <div class="text">Lorem ipsum dolor sit amet edit, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</div>
+                </div>
+            </div>
+            <!--Button Column-->
+            <div class="button-column col-lg-4 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    <a href="contact.html" class="theme-btn btn-style-two"><span class="txt">Contact Us</span></a>
+                </div>
             </div>
         </div>
     </div>
-    <!-- TESTIMONIALS CAROUSEL END -->
+</section>
+<!--End Talk Section-->
 
-    <!-- CONTACT SECTION -->
-    <div class="impx-contact">
-        <div id="impx-gmap"></div>
 
-        <div class="impx-overlay aqua-darkest  uk-padding uk-padding-remove-bottom uk-padding-remove-horizontal">
-            <div class="uk-container">
 
-                <div class="uk-width-2-3@xl uk-width-2-3@l uk-width-2-3@m uk-width-1-1@s uk-margin-medium-bottom">
-                    <!-- Location -->
-                    <h4 class="impx-text-white">Our Location</h4>
-                    <p class="impx-text-large impx-text-light">Oculorum, inquit Plato, est in nobis sensus acerrimus,
-                        quibus sapientiam non cernimus non semper inquam At enim sequor utilitatem praetermissum in Stoicis?
-                    </p>
-                    <!-- Location End -->
+<!-- Testimonial Section -->
+<section class="testimonial-section alternate">
+    <div class="auto-container">
+        <!-- Sec Title -->
+        <div class="sec-title centered">
+            <h1>What Clients Reviews</h1>
+            <div class="separator"></div>
+        </div>
+
+        <div class="single-item-carousel owl-carousel owl-theme">
+
+            <!-- Testimonial Block Two -->
+            <div class="testimonial-block-two">
+                <div class="inner-box">
+                    <div class="content-box">
+                        <div class="quote-icon flaticon-quote-2"></div>
+                        <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco labo ris nisi ut aliquip.</p>
+                        <h3>Anjalina Mark</h3>
+                        <p class="designation">New York</p>
+                    </div>
+                    <div class="image-box">
+
+
+                        <img src="{{ url('frontend/images/resource/author-5.png')}}" alt="" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial Block Two -->
+            <div class="testimonial-block-two">
+                <div class="inner-box">
+                    <div class="content-box">
+                        <div class="quote-icon flaticon-quote-2"></div>
+                        <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco labo ris nisi ut aliquip.</p>
+                        <h3>Bob Wolmer</h3>
+                        <p class="designation">Sydney</p>
+                    </div>
+                    <div class="image-box">
+                        <img src="{{ url('frontend/images/resource/author-6.png')}}" alt="" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial Block Two -->
+            <div class="testimonial-block-two">
+                <div class="inner-box">
+                    <div class="content-box">
+                        <div class="quote-icon flaticon-quote-2"></div>
+                        <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco labo ris nisi ut aliquip.</p>
+                        <h3>Mark Voucher</h3>
+                        <p class="designation">California</p>
+                    </div>
+                    <div class="image-box">
+                        <img src="{{ url('frontend/images/resource/author-7.png')}}" alt="" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<!-- End Testimonial Section -->
+
+
+<!--Newsleter Section-->
+<section class="newsletter-section" style="background-image:url(images/background/1.jpg)">
+    <div class="auto-container">
+        <div class="inner-container">
+            <div class="row clearfix">
+
+                <!--Title Column-->
+                <div class="title-column col-lg-5 col-md-12 col-sm-12">
+                    <div class="inner-column">
+                        <div class="icon-box">
+                            <span class="icon flaticon-door-knob"></span>
+                        </div>
+                        <h4>Newsletter Subscription</h4>
+                        <div class="title">Get latest news & updates</div>
+                    </div>
                 </div>
 
-                <div data-uk-grid class="uk-padding-remove-bottom">
-                    <!-- Address -->
-                    <div class="uk-light uk-width-1-2@xl uk-width-1-2@l uk-width-1-2@m uk-width-1-1@s">
-                        <h5 class="uk-heading-line uk-margin-remove-bottom impx-text-white"><span>Address</span></h5>
-                        <p class="impx-text-large uk-margin-top impx-text-light">Vill sumaropa Po jari Teh bhunter Distt
-                            kullu
-                            <br />Near sada barrier kasol manikaran
-                        </p>
-                    </div><!-- Address End-->
-                    <div class="uk-light uk-width-1-4@xl uk-width-1-4@l uk-width-1-4@m uk-width-1-1@s">
-                        <!-- Phone -->
-                        <h5 class="uk-heading-line uk-margin-bottom impx-text-white"><span>Phone</span></h5>
-                        <p class="impx-text-large uk-margin-remove impx-text-light">+62 123456789<br />+62 987456123</p>
-                    </div><!-- Phone End -->
-                    <div class="uk-light uk-width-1-4@xl uk-width-1-4@l uk-width-1-4@m uk-width-1-1@s">
-                        <!-- Email -->
-                        <h5 class="uk-heading-line uk-margin-bottom  impx-text-white"><span>Email</span></h5>
-                        <a href="mailt:#" class="impx-text-large impx-text-light">cs@sativa-html.com</a><br />
-                        <a href="mailt:#" class="impx-text-large impx-text-light">info@sativa-html.com</a>
-                    </div><!-- Email End -->
+                <!--Form Column-->
+                <div class="form-column col-lg-7 col-md-12 col-sm-12">
+                    <div class="inner-column">
+
+                        <!--Subscribe Form-->
+                        <div class="subscribe-form">
+                            <form method="post" action="http://ary-themes.com/html/noor_tech/dream-property/contact.html">
+                                <div class="form-group">
+                                    <input type="email" name="email" value="" placeholder="Email Address" required>
+                                    <button type="submit" class="submit-btn">Submit Now</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
                 </div>
 
             </div>
         </div>
     </div>
-    <!-- CONTACT SECTION END -->
+</section>
+<!--End Newsleter Section-->
+
 @endsection

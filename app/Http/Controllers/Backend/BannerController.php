@@ -79,7 +79,7 @@ class BannerController extends Controller
                     //Resize image here
                     $thumbnailpath = public_path('storage/images/'.$filenametostore);
 
-                    $img = Image::make($thumbnailpath)->resize(1920*1080, function($constraint) {
+                    $img = Image::make($thumbnailpath)->resize(100*100, function($constraint) {
                         $constraint->aspectRatio();
                     });
 

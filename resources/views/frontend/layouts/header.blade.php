@@ -1,140 +1,192 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
+<!-- dream-property/index.html  18 Nov 2019 05:01:32 GMT -->
 <head>
+<meta charset="utf-8">
+<title>Twilight Camping</title>
+<!-- Stylesheets -->
+<link href="{{url('frontend/css/bootstrap.css')}}" rel="stylesheet">
+<link href="{{ url('frontend/css/style.css')}}" rel="stylesheet">
+<link href="{{ url('frontend/css/responsive.css')}}" rel="stylesheet">
 
-        <!-- Standard Meta -->
-        <meta charset="utf-8">
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--Color Themes-->
+<link id="theme-color-file" href="{{ url('frontend/css/color-themes/default-theme.css')}}" rel="stylesheet">
 
-        <!-- Site Properties -->
-        <title>Twilight  Camping</title>
-        <link rel="shortcut icon" href="{{ url('frontend/images/favicon.ico')}}" type="image/x-icon">
-        <link rel="apple-touch-icon-precomposed" href="{{url('frontend/images/apple-touch-icon.png')}}">
+<link rel="shortcut icon" href="{{ url('frontend/images/favicon.png')}}" type="image/x-icon">
+<link rel="icon" href="{{ url('frontend/images/favicon.png')}}" type="image/x-icon">
 
-        <!-- Google Fonts -->
-       	<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&amp;subset=cyrillic" rel="stylesheet">
-       	<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet">
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+</head>
 
-        <!-- CSS -->
-        <link rel="stylesheet" href="{{url('frontend/css/uikit.min.css')}}" />
-        <link rel="stylesheet" href="{{url('frontend/css/font-awesome.min.css')}}" />
-        <link rel="stylesheet" href="{{url('frontend/css/tiny-date-picker.min.css')}}" />
-        <link rel="stylesheet" href="{{url('frontend/css/style.css')}}" />
-        <link rel="stylesheet" href="{{url('frontend/css/media-query.css')}}" />
+<body>
 
-    </head>
+<div class="page-wrapper">
+     <!-- Preloader -->
+     <div class="preloader"></div>
 
-    <body class="impx-body" id="top">
-
-    	<!-- HEADER -->
-		<header id="impx-header">
-			<div>
-				<div class="impx-menu-wrapper">
-
-					<!-- Mobile Nav Start -->
-					<div id="mobile-nav" data-uk-offcanvas="mode: push; overlay: true">
-				        <div class="uk-offcanvas-bar">
-
-				            <ul class="uk-nav uk-nav-default">
-				                <li @if (url()->current() == route('name.home')) class="uk-parent uk-active" @endif>
-				                	<a href="{{ route('name.home')}}">Home</a>
-				                </li>
-
-                                <li @if (url()->current() == route('name.about')) class="uk-parent uk-active" @endif>
-									<a href="{{ route('name.about')}}">About Us</a>
-								</li>
-                                <li @if (url()->current() == route('name.gallery')) class="uk-parent uk-active" @endif>
-									<a href="{{ route('name.gallery')}}">Gallery</a>
-								</li>
-                                <li @if (url()->current() == route('name.testimonial')) class="uk-parent uk-active" @endif>
-									<a href="{{ route('name.testimonial')}}">Testimonial</a>
-								</li>
-                                <li @if (url()->current() == route('name.contact')) class="uk-parent uk-active" @endif>
-									<a href="{{ route('name.contact')}}">Contact</a>
-								</li>
-
-				            </ul>
-
-				        </div>
-				    </div>
-				    <a href="#mobile-nav" class="uk-hidden@xl uk-hidden@l uk-hidden@m mobile-nav" data-uk-toggle="target: #mobile-nav"><i class="fa fa-bars"></i>Menu</a>
-		            <!-- Mobile Nav End -->
-
-		            <!-- Top Header -->
-					<div class="impx-top-header">
-						<div class="uk-container uk-container-expand">
-
-							<div class="uk-grid">
-								<!-- header phone -->
-								<div class="uk-width-1-2@xl uk-width-1-2@l uk-width-1-2@m uk-width-1-1@s">
-									<div class="impx-top-phone">
-										<p><i class="fa fa-phone"></i> Phone : +62 123456789</p>
-									</div>
-								</div><!-- header phone end-->
-								<!-- header social media -->
-								<div class="uk-width-1-2@xl uk-width-1-2@l uk-width-1-2@m uk-width-1-1@s">
-									<div class="impx-top-social">
-										<ul>
-											<li><a href="#"><i class="fa fa-facebook-f"></i>Facebook</a></li>
-											<li><a href="#"><i class="fa fa-instagram"></i>Instagram</a></li>
-											<li><a href="#"><i class="fa fa-twitter"></i>Twitter</a></li>
-										</ul>
-									</div>
-								</div><!-- header social media end -->
-							</div>
-
-						</div>
+    <header class="main-header">
+        <!--Header Top-->
+        <div class="header-top">
+            <div class="auto-container clearfix">
+                <div class="top-left clearfix">
+                    <ul class="list">
+						<li><span class="icon fas fa-envelope"></span> Twilight Camps Cafe Kasol</li>
+						<li><span class="icon fas fa-phone"></span> <a href="tel:+918219615617"> 918219615617</a></li>
+					</ul>
+                </div>
+                <div class="top-right clearfix">
+					<div class="login-register">
+						<a href="{{ route('frontend.login')}}">Login</a>
+						<a href="{{ route('frontend.register')}}">Register </a>
 					</div>
-					<!-- Top Header End -->
+                    <ul class="social-icons">
+						<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+						<li><a href="#"><span class="fab fa-google"></span></a></li>
+						<li><a href="#"><span class="fab fa-twitter"></span></a></li>
+						<li><a href="#"><span class="fab fa-skype"></span></a></li>
+						<li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+					</ul>
+                </div>
+            </div>
+        </div>
+        <!-- End Header Top -->
 
+        <!-- Header Upper -->
+        <div class="header-upper">
+            <div class="inner-container">
+                <div class="auto-container clearfix">
+                    <!--Info-->
+                    <div class="logo-outer">
+                    <div class="logo"><a href="{{ route('frontend.home')}}"><img src="{{ url('frontend/images/logo.png')}}" alt="" title=""></a></div>
+                    </div>
 
-					<div class="uk-container uk-container-expand">
-						<div data-uk-grid>
+                    <!--Nav Box-->
+                    <div class="nav-outer clearfix">
+                        <!--Mobile Navigation Toggler For Mobile--><div class="mobile-nav-toggler"><span class="icon flaticon-menu"></span></div>
+                        <nav class="main-menu navbar-expand-md navbar-light">
+                            <div class="navbar-header">
+                                <!-- Togg le Button -->
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="icon flaticon-menu"></span>
+                                </button>
+                            </div>
 
-							<!-- Header Logo -->
-							<div class="uk-width-auto">
-								<div class="impx-logo">
-									<a href="{{ url('/') }}"><img src="{{ url('frontend/images/logo.png')}}" class="" alt="Logo"></a>
-								</div>
-							</div>
-							<!-- Header Logo End-->
+                            <div class="collapse navbar-collapse clearfix">
+                                <ul class="navigation clearfix">
+                                <li class="current"><a href="{{ route('frontend.home')}}">Home</a>
+                                    </li>
+									<li class="dropdown"><a href="#">About us</a>
+                                        <ul>
+                                            <li><a href="about.html">About Us</a></li>
+											<li><a href="faq.html">Faq</a></li>
+											<li><a href="gallery.html">Gallery</a></li>
+                                        </ul>
+                                    </li>
+									<li class="dropdown has-mega-menu"><a href="#"><span data-hover="Pages">Pages</span></a>
+										<div class="mega-menu">
+											<div class="mega-menu-bar row clearfix">
+												<div class="column col-md-3 col-xs-12">
+													<h3>About Us</h3>
+													<ul>
+														<li><a href="about.html">About Us</a></li>
+														<li><a href="faq.html">Faq</a></li>
+														<li><a href="take-tour.html">Take Tour</a></li>
+														<li><a href="video-tour.html">Video Tour</a></li>
+														<li><a href="gallery.html">Gallery</a></li>
+														<li><a href="comming-soon.html">Comming Soon</a></li>
+													</ul>
+												</div>
+												<div class="column col-md-3 col-xs-12">
+													<h3>Properties</h3>
+													<ul>
+														<li><a href="properties.html">Properties</a></li>
+														<li><a href="dashboard.html">Dashboard</a></li>
+														<li><a href="submit-property.html">Submit Property</a></li>
+														<li><a href="properties-list-view.html">Properties List View</a></li>
+														<li><a href="properties-grid-view.html">Properties Grid View</a></li>
+														<li><a href="properties-classic-view.html">Properties Classic View</a></li>
+														<li><a href="properties-detail.html">Properties Detail</a></li>
+													</ul>
+												</div>
+												<div class="column col-md-3 col-xs-12">
+													<h3>Blog</h3>
+													<ul>
+														<li><a href="blog.html">Our Blog</a></li>
+														<li><a href="blog-list.html">Blog List</a></li>
+														<li><a href="blog-classic.html">Blog Classic</a></li>
+														<li><a href="blog-detail.html">Blog Detail</a></li>
+														<li><a href="not-found.html">Not Found</a></li>
+													</ul>
+												</div>
+												<div class="column col-md-3 col-xs-12">
+													<h3>Shops</h3>
+												</div>
+											</div>
+										</div>
+                                    </li>
+                                <li><a href="{{ route('tent')}}">Tent</a>
+                                    </li>
+                                <li><a href="{{ route('frontend.contact')}}">Contact us</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                        <!-- Main Menu End-->
 
-							<!-- Header Navigation -->
-							<div class="uk-width-expand uk-position-relative">
-								<nav class="uk-navbar-container uk-navbar-transparent uk-visible@s uk-visible@m" data-uk-navbar>
-									<div class="uk-navbar-right impx-navbar-right">
-	        							<ul class="uk-navbar-nav impx-nav">
-											<!-- Navigation Items -->
-									    	<li @if (url()->current() == route('name.home')) class="uk-parent uk-active" @endif>
-                                            	<a href="{{ route('name.home')}}" class="uk-navbar-nav-subtitle"><div>Home</div></a>
-											</li>
+                        <!-- Main Menu End-->
+                        <div class="outer-box clearfix">
+							<!-- Search Btn -->
+							<div class="search-box-btn"><span class="icon flaticon-search"></span></div>
+                            <!-- Button Box -->
+                            <div class="btn-box">
+                                <a href="contact.html" class="theme-btn btn-style-one"><span class="txt">Book now</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End Header Upper-->
 
-											<li @if (url()->current() == route('name.about')) class="uk-parent uk-active" @endif>
-												<a href="{{ route('name.about')}}" class="uk-navbar-nav-subtitle"><div>About us</div></a>
-											</li>
-											<li @if (url()->current() == route('name.gallery')) class="uk-parent uk-active" @endif>
-												<a href="{{ route('name.gallery')}}" class="uk-navbar-nav-subtitle"><div>Gallery</div></a>
-											</li>
+		<!--Sticky Header-->
+        <div class="sticky-header">
+        	<div class="auto-container clearfix">
+            	<!--Logo-->
+            	<div class="logo pull-left">
+                	<a href="index-2.html" class="img-responsive"><img src="{{ url('frontend/images/logo-small.png')}}" alt="" title=""></a>
+                </div>
 
-											<li @if (url()->current() == route('name.testimonial')) class="uk-parent uk-active" @endif>
-												<a href="{{ route('name.testimonial')}}" class="uk-navbar-nav-subtitle"><div>Testimonial</div></a>
-											</li>
-											<li @if (url()->current() == route('name.contact')) class="uk-parent uk-active" @endif>
-												<a href="{{ route('name.contact')}}" class="uk-navbar-nav-subtitle"><div>Contact us</div></a>
-											</li>
-									    </ul>
-									    <!-- Navigation Items End -->
-									</div>
-								</nav>
-							</div>
-							<!-- Header Navigation End -->
-						</div>
-					</div>
-				</div>
-			</div>
+				<!--Right Col-->
+                <div class="right-col pull-right">
+					<!-- Main Menu -->
+                    <nav class="main-menu navbar-expand-md">
+                        <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent1">
+                            <ul class="navigation clearfix"><!--Keep This Empty / Menu will come through Javascript--></ul>
+                        </div>
+                    </nav><!-- Main Menu End-->
+                </div>
 
-		</header>
-		<!-- HEADER END -->
+            </div>
+        </div>
+        <!--End Sticky Header-->
+
+    	<!-- Mobile Menu  -->
+        <div class="mobile-menu">
+            <div class="menu-backdrop"></div>
+            <div class="close-btn"><span class="icon far fa-window-close"></span></div>
+
+            <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+            <nav class="menu-box">
+            <div class="nav-logo"><a href="{{ route('frontend.home')}}"><img src="{{ url('frontend/images/nav-logo.png')}}" alt="" title=""></a></div>
+
+                <ul class="navigation clearfix"><!--Keep This Empty / Menu will come through Javascript--></ul>
+            </nav>
+        </div><!-- End Mobile Menu -->
+
+    </header>
+    <!-- End Main Header -->

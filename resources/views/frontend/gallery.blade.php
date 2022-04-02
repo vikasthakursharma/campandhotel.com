@@ -1,175 +1,190 @@
 @extends('frontend.layouts.main')
 @section('main-section')
+<!-- Gallery Section -->
+<section class="gallery-page-section">
+    	<div class="auto-container">
 
-		<!-- PAGE HEADING -->
-		<div class="impx-page-heading uk-position-relative gallery">
-			<div class="impx-overlay dark"></div>
-			<div class="uk-container">
-				<div class="uk-width-1-1">
-					<div class="uk-flex uk-flex-left">
-						<div class="uk-light uk-position-relative uk-text-left page-title">
-							<h1 class="uk-margin-remove">Gallery</h1><!-- page title -->
-							<p class="impx-text-large uk-margin-remove">Our Story in Pictures</p><!-- page subtitle -->
+        	<!--Sec Title-->
+            <div class="sec-title centered">
+            	<h1>Our Gallery</h1>
+                <div class="separator"></div>
+            </div>
+
+			<div class="row clearfix">
+
+				<!-- Project item -->
+				<div class="gallery-item col-lg-4 col-md-6 col-sm-12">
+					<div class="image-box">
+						<figure class="image"><img src="{{ url('frontend/images/gallery/7.jpg')}}" alt=""></figure>
+						<div class="overlay-box">
+							<div class="icon-box">
+								<a href="properties-detail.html" class="link"><span class="icon fa flaticon-unlink"></span></a>
+								<a href="images/gallery/1.jpg" class="link" data-fancybox="gallery" data-caption=""><span class="icon fa fa-expand-arrows-alt"></span></a>
+								<h3><a href="properties-detail.html">France Property</a></h3>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-		<!-- PAGE HEADING END -->
 
-		<!-- GALLERY CONTENT -->
-		<div class="uk-padding uk-padding-remove-horizontal">
-			<div class="uk-container">
-
-				<div data-uk-filter="target: .js-filter">
-					<!-- gallery filter -->
-				    <ul class="uk-subnav uk-subnav-pill uk-flex-center uk-margin-medium-bottom impx-gallery-filter uk-margin-small-top impx-margin-bottom">
-				    	<li data-uk-filter-control=".all"><a href="#">All</a></li>
-				        <li data-uk-filter-control=".hotel"><a href="#">Hotel</a></li>
-				        <li data-uk-filter-control=".restaurant"><a href="#">Restaurant</a></li>
-				        <li data-uk-filter-control=".spa"><a href="#">Spa</a></li>
-				    </ul><!-- gallery filter end -->
-
-				    <!-- gallery items -->
-					<div class="js-filter uk-child-width-1-4@xl uk-child-width-1-4@l uk-child-width-1-4@m uk-child-width-1-3@s uk-grid-medium uk-margin-small-bottom" data-uk-grid="masonry : true" data-uk-lightbox>
-	                    <div class="restaurant all"><!-- gallery item #1 -->
-	                    	<a class="uk-inline-clip uk-transition-toggle" href="images/resto-gal-2.html" data-caption="Caption 1">
-		                        <img src="{{ url('frontend/images/gallery/resto-gal-2.jpg')}}" alt="">
-		                        <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary">
-	                                <h5>Image 1</h5>
-	                                <p>Plane idem, inquit, et maxima quidem, qua fieri nulla maior potest ad honestatem</p>
-		                        </div>
-		                    </a>
-	                    </div><!-- gallery item #1 end -->
-	                    <div class="spa all" data-uk-lightbox><!-- gallery item #2 -->
-	                        <a class="uk-inline-clip uk-transition-toggle" href="images/spa-service-2.jpg"  data-caption="Caption 4">
-		                        <img src="{{ url('frontend/images/spa-service-2.jpg')}}" alt="">
-		                        <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary">
-									<h5>Image 4</h5>
-	                                <p>Plane idem, inquit, et maxima quidem, qua fieri nulla maior potest ad honestatem</p>
-		                        </div>
-		                    </a>
-	                    </div><!-- gallery item #2 end -->
-	                    <div class="hotel all" data-uk-lightbox><!-- gallery item #3 -->
-	                        <a class="uk-inline-clip uk-transition-toggle" href="images/service-4.jpg" data-caption="Caption 8">
-		                        <img src="{{ url('frontend/images/service-4.jpg')}}" alt="">
-		                        <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary">
-									<h5>Image 8</h5>
-	                                <p>Plane idem, inquit, et maxima quidem, qua fieri nulla maior potest ad honestatem</p>
-		                        </div>
-		                    </a>
-	                    </div><!-- gallery item #3 end -->
-	                    <div class="restaurant all" data-uk-lightbox><!-- gallery item #4 -->
-	                        <a class="uk-inline-clip uk-transition-toggle" href="images/resto-square.jpg"  data-caption="Caption 6">
-		                        <img src=" {{ url('frontend/images/resto-square.jpg')}}" alt="">
-		                        <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary">
-									<h5>Image 6</h5>
-	                                <p>Plane idem, inquit, et maxima quidem, qua fieri nulla maior potest ad honestatem</p>
-		                        </div>
-		                    </a>
-	                    </div><!-- gallery item #4 end -->
-	                    <div class="hotel all" data-uk-lightbox><!-- gallery item #5 -->
-	                        <a class="uk-inline-clip uk-transition-toggle" href="images/about-img-2.jpg" data-caption="Caption 7">
-		                        <img src=" {{ url('frontend/images/about-img-2.jpg')}}" alt="">
-		                        <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary">
-									<h5>Image 7</h5>
-	                                <p>Plane idem, inquit, et maxima quidem, qua fieri nulla maior potest ad honestatem</p>
-		                        </div>
-		                    </a>
-	                    </div><!-- gallery item #5 end -->
-	                    <div class="restaurant all" data-uk-lightbox><!-- gallery item #5 -->
-	                        <a class="uk-inline-clip uk-transition-toggle" href="images/resto-gal-3.html" data-caption="Caption 2">
-		                        <img src=" {{url('frontend/images/gallery/resto-gal-3.jpg')}}" alt="">
-		                        <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary">
-									<h5>Image 2</h5>
-	                                <p>Plane idem, inquit, et maxima quidem, qua fieri nulla maior potest ad honestatem</p>
-		                        </div>
-		                    </a>
-	                    </div><!-- gallery item #5 end -->
-	                    <div class="hotel all" data-uk-lightbox><!-- gallery item #6 -->
-	                        <a class="uk-inline-clip uk-transition-toggle" href=" {{url('images/activities/family-fun-1.jpg')}}"  data-caption="Caption 3">
-		                        <img src="{{ url('frontend/images/activities/family-fun-1.jpg')}}" alt="">
-		                        <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary">
-									<h5>Image 3</h5>
-	                                <p>Plane idem, inquit, et maxima quidem, qua fieri nulla maior potest ad honestatem</p>
-		                        </div>
-		                    </a>
-	                    </div><!-- gallery item #6 end -->
-	                    <div class="spa all" data-uk-lightbox>
-	                        <a class="uk-inline-clip uk-transition-toggle" href="images/spa-gal.html" data-caption="Caption 8">
-		                        <img src="{{ url('frontend/images/gallery/spa-gal.jpg')}}" alt="">
-		                        <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary">
-									<h5>Image 8</h5>
-	                                <p>Plane idem, inquit, et maxima quidem, qua fieri nulla maior potest ad honestatem</p>
-		                        </div>
-		                    </a>
-	                    </div><!-- gallery item #6 end -->
-	                    <div class="hotel all" data-uk-lightbox><!-- gallery item #7 -->
-	                        <a class="uk-inline-clip uk-transition-toggle" href="images/rooms/room-square-4.jpg" data-caption="Caption 8">
-		                        <img src=" {{ url('frontend/images/rooms/room-square-4.jpg')}}" alt="">
-		                        <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary">
-									<h5>Image 8</h5>
-	                                <p>Plane idem, inquit, et maxima quidem, qua fieri nulla maior potest ad honestatem</p>
-		                        </div>
-		                    </a>
-	                    </div><!-- gallery item #7 end -->
-	                     <div class="spa all" data-uk-lightbox><!-- gallery item #8 -->
-	                        <a class="uk-inline-clip uk-transition-toggle" href="images/spa.jpg"  data-caption="Caption 5">
-		                        <img src="{{ url('frontend/images/spa.jpg')}}" alt="">
-		                        <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary">
-									<h5>Image 5</h5>
-	                                <p>Plane idem, inquit, et maxima quidem, qua fieri nulla maior potest ad honestatem</p>
-		                        </div>
-		                    </a>
-	                    </div><!-- gallery item #8 end -->
-	                    <div class="restaurant all" data-uk-lightbox><!-- gallery item #9 -->
-	                        <a class="uk-inline-clip uk-transition-toggle" href="images/resto-gal-7.html"  data-caption="Caption 6">
-		                        <img src="{{ url('frontend/images/gallery/resto-gal-7.jpg')}}" alt="">
-		                        <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary">
-									<h5>Image 6</h5>
-	                                <p>Plane idem, inquit, et maxima quidem, qua fieri nulla maior potest ad honestatem</p>
-		                        </div>
-		                    </a>
-	                    </div><!-- gallery item #9 end -->
-	                    <div class="spa all" data-uk-lightbox>
-	                        <a class="uk-inline-clip uk-transition-toggle" href="images/spa-feature-2.jpg"  data-caption="Caption 6">
-		                        <img src=" {{ url('frontend/images/spa-feature-2.jpg')}}" alt="">
-		                        <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary">
-									<h5>Image 6</h5>
-	                                <p>Plane idem, inquit, et maxima quidem, qua fieri nulla maior potest ad honestatem</p>
-		                        </div>
-		                    </a>
-	                    </div><!-- gallery item #9 end -->
-	                </div>
-	                <!-- gallery items end -->
-	            </div>
-	            
-    		</div>
-		</div>
-		<!-- GALLERY CONTENT END -->
-
-		<!-- CONTACT INFO -->
-		<div class="uk-padding bg-img2 uk-position-relative">
-			<div class="impx-overlay dark"></div>
-			<div class="uk-container">
-
-				<div data-uk-grid class="uk-padding-remove-bottom uk-position-relative">				
-					<div class="uk-light uk-width-1-2@xl uk-width-1-2@l uk-width-1-2@m uk-width-1-3@s"><!-- address -->
-						<h5 class="uk-heading-line uk-margin-remove-bottom"><span>Address</span></h5>
-						<p class="impx-text-large uk-margin-top">Jln. Raya Kemerderkaan RI No. 17<br/>Indonesia Raya</p>
+				<!-- Project item -->
+				<div class="gallery-item col-lg-4 col-md-6 col-sm-12">
+					<div class="image-box">
+						<figure class="image"><img src="{{ url('frontend/images/gallery/8.jpg')}}" alt=""></figure>
+						<div class="overlay-box">
+							<div class="icon-box">
+								<a href="properties-detail.html" class="link"><span class="icon fa flaticon-unlink"></span></a>
+								<a href="{{ url('frontend/images/gallery/8.jpg')}}" class="link" data-fancybox="gallery" data-caption=""><span class="icon fa fa-expand-arrows-alt"></span></a>
+								<h3><a href="properties-detail.html">Commerical Building</a></h3>
+							</div>
+						</div>
 					</div>
-					<div class="uk-light uk-width-1-4@xl uk-width-1-4@l uk-width-1-4@m uk-width-1-3@s"><!-- phone -->
-						<h5 class="uk-heading-line uk-margin-bottom"><span>Phone</span></h5>
-						<p class="impx-text-large uk-margin-remove">+62 123456789<br/>+62 987456123</p>
+				</div>
+
+				<!-- Project item -->
+				<div class="gallery-item col-lg-4 col-md-6 col-sm-12">
+					<div class="image-box">
+						<figure class="image"><img src="{{ url('frontend/images/gallery/9.jpg')}}" alt=""></figure>
+						<div class="overlay-box">
+							<div class="icon-box">
+								<a href="properties-detail.html" class="link"><span class="icon fa flaticon-unlink"></span></a>
+								<a href="images/gallery/9.jpg" class="link" data-fancybox="gallery" data-caption=""><span class="icon fa fa-expand-arrows-alt"></span></a>
+								<h3><a href="properties-detail.html">News Flats Property</a></h3>
+							</div>
+						</div>
 					</div>
-					<div class="uk-light uk-width-1-4@xl uk-width-1-4@l uk-width-1-4@m uk-width-1-3@s"><!-- email -->
-						<h5 class="uk-heading-line uk-margin-bottom"><span>Email</span></h5>
-						<a href="mailt:#" class="impx-text-large">cs@sativa-html.com</a><br/>
-						<a href="mailt:#" class="impx-text-large">info@sativa-html.com</a>
+				</div>
+
+				<!-- Project item -->
+				<div class="gallery-item col-lg-4 col-md-6 col-sm-12">
+					<div class="image-box">
+						<figure class="image"><img src="{{ url('frontend/images/gallery/10.jpg')}}" alt=""></figure>
+						<div class="overlay-box">
+							<div class="icon-box">
+								<a href="properties-detail.html" class="link"><span class="icon fa flaticon-unlink"></span></a>
+								<a href="images/gallery/10.jpg" class="link" data-fancybox="gallery" data-caption=""><span class="icon fa fa-expand-arrows-alt"></span></a>
+								<h3><a href="properties-detail.html">House For Sale Property</a></h3>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Project item -->
+				<div class="gallery-item col-lg-4 col-md-6 col-sm-12">
+					<div class="image-box">
+						<figure class="image"><img src="{{ url('frontend/images/gallery/11.jpg')}}" alt=""></figure>
+						<div class="overlay-box">
+							<div class="icon-box">
+								<a href="properties-detail.html" class="link"><span class="icon fa flaticon-unlink"></span></a>
+								<a href="images/gallery/11.jpg" class="link" data-fancybox="gallery" data-caption=""><span class="icon fa fa-expand-arrows-alt"></span></a>
+								<h3><a href="properties-detail.html">New Villas</a></h3>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Project item -->
+				<div class="gallery-item col-lg-4 col-md-6 col-sm-12">
+					<div class="image-box">
+						<figure class="image"><img src="{{ url('frontend/images/gallery/12.jpg')}}" alt=""></figure>
+						<div class="overlay-box">
+							<div class="icon-box">
+								<a href="properties-detail.html" class="link"><span class="icon fa flaticon-unlink"></span></a>
+								<a href="images/gallery/12.jpg" class="link" data-fancybox="gallery" data-caption=""><span class="icon fa fa-expand-arrows-alt"></span></a>
+								<h3><a href="properties-detail.html">Form House</a></h3>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Project item -->
+				<div class="gallery-item col-lg-4 col-md-6 col-sm-12">
+					<div class="image-box">
+						<figure class="image"><img src="{{ url('frontend/images/gallery/13.jpg')}}" alt=""></figure>
+						<div class="overlay-box">
+							<div class="icon-box">
+								<a href="properties-detail.html" class="link"><span class="icon fa flaticon-unlink"></span></a>
+								<a href="images/gallery/13.jpg" class="link" data-fancybox="gallery" data-caption=""><span class="icon fa fa-expand-arrows-alt"></span></a>
+								<h3><a href="properties-detail.html">German Commercial Property</a></h3>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Project item -->
+				<div class="gallery-item col-lg-4 col-md-6 col-sm-12">
+					<div class="image-box">
+						<figure class="image"><img src="images/gallery/14.jpg" alt=""></figure>
+						<div class="overlay-box">
+							<div class="icon-box">
+								<a href="properties-detail.html" class="link"><span class="icon fa flaticon-unlink"></span></a>
+								<a href="images/gallery/14.jpg" class="link" data-fancybox="gallery" data-caption=""><span class="icon fa fa-expand-arrows-alt"></span></a>
+								<h3><a href="properties-detail.html">New York Houses</a></h3>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Project item -->
+				<div class="gallery-item col-lg-4 col-md-6 col-sm-12">
+					<div class="image-box">
+						<figure class="image"><img src="images/gallery/15.jpg" alt=""></figure>
+						<div class="overlay-box">
+							<div class="icon-box">
+								<a href="properties-detail.html" class="link"><span class="icon fa flaticon-unlink"></span></a>
+								<a href="images/gallery/15.jpg" class="link" data-fancybox="gallery" data-caption=""><span class="icon fa fa-expand-arrows-alt"></span></a>
+								<h3><a href="properties-detail.html">Sydney Form House</a></h3>
+							</div>
+						</div>
 					</div>
 				</div>
 
 			</div>
-		</div>
-		<!-- CONTACT INFO END -->
+
+			<div class="btn-box text-center">
+				<a class="theme-btn btn-style-two" href="#"><span class="txt">Load More</span></a>
+			</div>
+
+        </div>
+    </section>
+    <!--End Gallery Section-->
+
+	<!--Newsleter Section-->
+    <section class="newsletter-section" style="background-image:url(images/background/1.jpg)">
+    	<div class="auto-container">
+        	<div class="inner-container">
+            	<div class="row clearfix">
+
+                    <!--Title Column-->
+                    <div class="title-column col-lg-5 col-md-12 col-sm-12">
+                    	<div class="inner-column">
+                        	<div class="icon-box">
+                            	<span class="icon flaticon-door-knob"></span>
+                            </div>
+                            <h4>Newsletter Subscription</h4>
+                            <div class="title">Get latest news & updates</div>
+                        </div>
+                    </div>
+
+                    <!--Form Column-->
+                    <div class="form-column col-lg-7 col-md-12 col-sm-12">
+                    	<div class="inner-column">
+
+                            <!--Subscribe Form-->
+                            <div class="subscribe-form">
+                                <form method="post" action="http://ary-themes.com/html/noor_tech/dream-property/contact.html">
+                                    <div class="form-group">
+                                        <input type="email" name="email" value="" placeholder="Email Address" required>
+                                        <button type="submit" class="submit-btn">Submit Now</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Newsleter Section-->
 @endsection

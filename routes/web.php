@@ -12,7 +12,9 @@ use App\Http\Controllers\Frontend\TestimonialController;
 use App\Http\Controllers\Backend\AuthController;
 use App\Http\Controllers\Backend\UsersController;
 use App\Http\Controllers\Backend\ProfileController;
-
+use App\Http\Controllers\Frontend\RegisterController;
+use App\Http\Controllers\Frontend\LoginController;
+use App\Http\Controllers\Frontend\TentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,11 +26,16 @@ use App\Http\Controllers\Backend\ProfileController;
 |
 */
 //---------- site routes start ---------------------------//
-Route::get('/',[HomeController::class,'index'])->name('name.home');
-Route::get('/contact',[ContactController::class,'index'])->name('name.contact');
-Route::get('/gallery',[GalleryController::class,'index'])->name('name.gallery');
-Route::get('/about',[AboutController::class,'index'])->name('name.about');
-Route::get('/testimonial',[TestimonialController::class,'index'])->name('name.testimonial');
+Route::get('/',[HomeController::class,'index'])->name('frontend.home');
+Route::get('/contact-us',[ContactController::class,'index'])->name('frontend.contact');
+Route::get('/gallery',[GalleryController::class,'index'])->name('frontend.gallery');
+Route::get('/about',[AboutController::class,'index'])->name('frontend.about');
+Route::get('/testimonial',[TestimonialController::class,'index'])->name('frontend.testinmonial');
+Route::get('/login',[LoginController::class,'index'])->name('frontend.login');
+Route::get('/register',[RegisterController::class,'index'])->name('frontend.register');
+Route::get('/tent',[TentController::class,'index'])->name('tent');
+Route::get('/tent-details',[TentController::class,'single_tent_details'])->name('tent.details');
+
 //----------------- site routes end -----------------------------//
 
 //===============================================================//
