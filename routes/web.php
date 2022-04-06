@@ -37,8 +37,13 @@ Route::get('/tent',[TentController::class,'index'])->name('tent');
 Route::get('/tent-details',[TentController::class,'single_tent_details'])->name('tent.details');
 Route::get('/faq',[TentController::class,'faq_page'])->name('frontend.faq');
 
+Route::get('/user/dashboard', [LoginController::class, 'UserDashboard'])->name('user.dashboard');
 
+Route::post('/user/auth/login', [LoginController::class, 'login'])->name('user.loginfront');
 
+Route::get('user/auth/logout', [LoginController::class, 'logout'])->name('user.logout');
+
+Route::post('/user/auth/register', [RegisterController::class, 'register'])->name('frontend.register');
 
 //----------------- site routes end -----------------------------//
 

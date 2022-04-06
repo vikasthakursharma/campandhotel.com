@@ -80,6 +80,7 @@ class AuthController extends Controller
                         'email'=>'required|unique:users',
                         'password' => ['required',Password::min(8)],
         ]);
+        $auth->role= 1;
         $auth->save();
         sendRegisterUserEmail($auth->name, $auth->email,$request['password']);
 

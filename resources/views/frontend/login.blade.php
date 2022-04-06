@@ -22,22 +22,29 @@
 
                 <!--Login Form-->
                 <div class="styled-form login-form">
-                    <form method="post" action="http://ary-themes.com/html/noor_tech/dream-property/index.html">
-                        <div class="form-group">
-                            <span class="adon-icon"><span class="fa fa-user"></span></span>
-                            <input type="text" name="username" value="" placeholder="Your Name *">
-                        </div>
+                    <form method="post" action="{{ url('/user/auth/login') }}">
+                        @csrf
                         <div class="form-group">
                             <span class="adon-icon"><span class="fa fa-envelope"></span></span>
-                            <input type="email" name="useremil" value="" placeholder="Emai Address*">
+                            <input type="email" name="email"placeholder="Emai Address*">
+                            @error('email')
+                            <span class="text-danger">
+                            {{ $message }}
+                            @enderror
+                            </span>
                         </div>
                         <div class="form-group">
                             <span class="adon-icon"><span class="fa fa-unlock"></span></span>
-                            <input type="password" name="userpassword" value="" placeholder="Enter Password">
+                            <input type="password" name="password" placeholder="Enter Password">
+                            @error('password')
+                            <span class="text-danger">
+                            {{ $message }}
+                            @enderror
+                            </span>
                         </div>
                         <div class="clearfix">
                             <div class="form-group pull-left">
-                                <button type="button" class="theme-btn btn-style-two"><span class="txt">Login Now</span></button>
+                                <button type="submit" class="theme-btn btn-style-two"><span class="txt">Login Now</span></button>
                             </div>
                             <div class="form-group social-icon-one pull-right">
                                 Or login with &ensp;
@@ -46,12 +53,15 @@
                                 <li><a href="#" class="fab fa-google"></a></li>
                             </div>
                         </div>
+                        <span style="color:red;">
+                            {{ session('error') }}
 
-                        <div class="clearfix">
-                            <div class="pull-left">
-                                <input type="checkbox" id="remember-me"><label class="remember-me" for="remember-me">&nbsp; Remember Me</label>
+                        </span>
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
                             </div>
-                        </div>
+                        @endif
 
                     </form>
                 </div>
