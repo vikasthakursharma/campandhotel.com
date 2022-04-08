@@ -35,11 +35,13 @@
                     </div>
                 </div>
 
+                <!--if condition start if url is with food-->
+
                 <!--Info Column-->
                 <div class="info-column col-lg-6 col-md-12 col-sm-12">
                     <div class="inner-column">
                         <div class="details-header">
-                            <h2>Well Furnished Villa.</h2>
+                            <h2>Tent for single/Coupled With food</h2>
                             <div class="item-price"><span>$92,00,000</span> $85,00,000</div>
                             <div class="rating"><span class="fa fa-star"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span> <span class="fa fa-star-half-empty"></span> <span class="light fa fa-star"></span></div>
                             <!--reviews-->
@@ -58,34 +60,33 @@
                             <li class="linkedin"><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
                             <li class="pinteret"><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
                         </ul>
+                        @php
+
+                        $fullUrl = \URL::full();
+                       echo $fullUrl;
+                        @endphp
                         <div class="other-options">
                             <!--Select Items-->
                             <div class="items-form">
                                 <div class="select-column">
                                     <div class="form-group">
-                                        <label>Category:</label>
-                                        <select name="sort-by">
-                                            <option>House</option>
-                                            <option>Commercial Building</option>
-                                            <option>Villa</option>
-                                            <option>Apartment</option>
+                                        <label>Price:</label>
+                                        <select name="sort-by" class="single_tentdetails_with_food">
+                                            <option value="2500"readonly>2500</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label>Area :</label>
-                                        <select name="sort-by">
-                                            <option>10 Marla</option>
-                                            <option>1 Kanal</option>
-                                            <option>2 Kanal</option>
-                                            <option>5 Kanal</option>
+                                        <label>Person :</label>
+                                        <select name="sort-by"  class="single_tentdetails_with_food_person">
+                                                <option value="1">1</option>
+                                            <option value="2" selected>2</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
                             <!--Btns Box-->
                             <div class="btns-box">
-                                <input type="text" placeholder="1" />
-                                <button type="button" class="theme-btn btn-style-two"><span class="txt">Add To Cart</span></button>
+                            <a href="{{ route('checkout')}}" class="theme-btn btn-style-two"><span class="txt">Book now</span></a>
                             </div>
                         </div>
                         <ul class="tags-box">
@@ -251,6 +252,8 @@
             </div>
         </div>
         <!--End Product Info Tabs-->
+
+
 
     </div>
 </div>

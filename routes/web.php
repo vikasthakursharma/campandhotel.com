@@ -15,6 +15,8 @@ use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Frontend\RegisterController;
 use App\Http\Controllers\Frontend\LoginController;
 use App\Http\Controllers\Frontend\TentController;
+use App\Http\Controllers\Frontend\PayController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,7 +36,25 @@ Route::get('/testimonial',[TestimonialController::class,'index'])->name('fronten
 Route::get('/login',[LoginController::class,'index'])->name('frontend.login');
 Route::get('/register',[RegisterController::class,'index'])->name('frontend.register');
 Route::get('/tent',[TentController::class,'index'])->name('tent');
-Route::get('/tent-details',[TentController::class,'single_tent_details'])->name('tent.details');
+
+//single tent details routes
+
+Route::get('/single-tent/category/with-food',[TentController::class,'single_tent_details_withfood'])->name('single-tent-details.withfood');
+Route::get('/single-tent/category/without-food',[TentController::class,'single_tent_details_withouthfood'])->name('single-tent-details.withoutfood');
+Route::get('/single-tent/category/grouped/with-food',[TentController::class,'single_tent_details_groupwithfood'])->name('single-tent-details.groupwithoutfood');
+Route::get('/single-tent/category/grouped/without-food',[TentController::class,'single_tent_details_groupedwithoutfood'])
+->name('single-tent-details.groupwithfood');
+
+//end single tent route
+
+//payment routes
+Route::get('checkout', [PayController::class, 'index'])->name('checkout');
+
+Route::get('payment', [PayController::class, 'index'])->name('payment');
+Route::post('payment-process', [PayController::class, 'paymentProcess']);
+Route::get('payment-success', [PayController::class, 'paymentSuccess']);
+
+
 Route::get('/faq',[TentController::class,'faq_page'])->name('frontend.faq');
 
 Route::get('/user/dashboard', [LoginController::class, 'UserDashboard'])->name('user.dashboard');

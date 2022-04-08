@@ -8,11 +8,7 @@ if (!empty($banner)) {
 }
 
 @endphp
-<style>
-    .content{
-        display: none !important;
-    }
-</style>
+
 
 <!-- Main Slider Two -->
 <section class="main-slider-two">
@@ -242,256 +238,6 @@ if (!empty($banner)) {
 </section>
 <!-- End Main Slider Two -->
 
-<!-- Search Home Section -->
-<section class="search-home-section">
-    <div class="auto-container">
-        <div class="property-search-tabs tabs-box">
-            <ul class="tab-buttons clearfix">
-                <li data-tab="#sale" class="tab-btn active-btn">Property For Sale</li>
-                <li data-tab="#rent" class="tab-btn">Property On Rent</li>
-            </ul>
-
-            <div class="tabs-content">
-                <!--Tab / Active Tab-->
-                <div class="tab active-tab" id="sale">
-                    <div class="property-search-form">
-                        <form method="post" action="http://ary-themes.com/html/noor_tech/dream-property/index.html">
-                            <div class="row">
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <label>Country</label>
-                                    <select class="custom-select-box">
-                                        <option>Country</option>
-                                        <option>USA</option>
-                                        <option>Canada</option>
-                                        <option>France</option>
-                                        <option>Italy</option>
-                                        <option>UAE</option>
-                                    </select>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <label>City</label>
-                                    <select class="custom-select-box">
-                                        <option>Any</option>
-                                        <option>New York</option>
-                                        <option>Los Angeles</option>
-                                        <option>Chicago</option>
-                                        <option>Houston</option>
-                                    </select>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <label>search by property id</label>
-                                    <input type="text" name="text" placeholder="Search ID" required>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <label>search by Address</label>
-                                    <input type="text" name="text" placeholder="Address" required>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <label>Bedroom</label>
-                                    <select class="custom-select-box">
-                                        <option>01</option>
-                                        <option>02</option>
-                                        <option>03</option>
-                                        <option>04</option>
-                                    </select>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <label>Washroom</label>
-                                    <select class="custom-select-box">
-                                        <option>01</option>
-                                        <option>02</option>
-                                        <option>03</option>
-                                        <option>04</option>
-                                    </select>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <label>Car Space</label>
-                                    <select class="custom-select-box">
-                                        <option>01</option>
-                                        <option>02</option>
-                                        <option>03</option>
-                                        <option>04</option>
-                                    </select>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <label>Servant Quarter</label>
-                                    <select class="custom-select-box">
-                                        <option>01</option>
-                                        <option>02</option>
-                                        <option>03</option>
-                                        <option>04</option>
-                                    </select>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                    <div class="range-slider-one clearfix">
-                                        <label>Area</label>
-                                        <div class="area-range-slider"></div>
-                                        <div class="input"><input type="text" class="property-amount" name="field-name" readonly></div>
-                                        <div class="title">m<sup>2</sup></div>
-                                    </div>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                    <div class="range-slider-one clearfix">
-                                        <label>Price Filter</label>
-                                        <div class="price-range-slider"></div>
-                                        <div class="input"><input type="text" class="price-amount" name="field-name" readonly></div>
-                                        <div class="title">US Doller</div>
-                                    </div>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                    <button type="submit" class="theme-btn btn-style-two"><span class="txt">Search Now</span></button>
-                                </div>
-
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
-                <!--Tab -->
-                <div class="tab" id="rent">
-                    <div class="property-search-form">
-                        <form method="post" action="http://ary-themes.com/html/noor_tech/dream-property/index.html">
-
-                            <div class="row">
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <label>Country</label>
-                                    <select class="custom-select-box">
-                                        <option>Country</option>
-                                        <option>USA</option>
-                                        <option>Canada</option>
-                                        <option>France</option>
-                                        <option>Italy</option>
-                                        <option>UAE</option>
-                                    </select>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <label>City</label>
-                                    <select class="custom-select-box">
-                                        <option>Any</option>
-                                        <option>New York</option>
-                                        <option>Los Angeles</option>
-                                        <option>Chicago</option>
-                                        <option>Houston</option>
-                                    </select>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <label>search by property id</label>
-                                    <input type="text" name="text" placeholder="Search ID" required>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <label>search by Address</label>
-                                    <input type="text" name="text" placeholder="Address" required>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <label>Bedroom</label>
-                                    <select class="custom-select-box">
-                                        <option>01</option>
-                                        <option>02</option>
-                                        <option>03</option>
-                                        <option>04</option>
-                                    </select>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <label>Washroom</label>
-                                    <select class="custom-select-box">
-                                        <option>01</option>
-                                        <option>02</option>
-                                        <option>03</option>
-                                        <option>04</option>
-                                    </select>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <label>Car Space</label>
-                                    <select class="custom-select-box">
-                                        <option>01</option>
-                                        <option>02</option>
-                                        <option>03</option>
-                                        <option>04</option>
-                                    </select>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <label>Servant Quarter</label>
-                                    <select class="custom-select-box">
-                                        <option>01</option>
-                                        <option>02</option>
-                                        <option>03</option>
-                                        <option>04</option>
-                                    </select>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                    <div class="range-slider-one clearfix">
-                                        <label>Area</label>
-                                        <div class="area-range-slider"></div>
-                                        <div class="input"><input type="text" class="property-amount" name="field-name" readonly></div>
-                                        <div class="title">m<sup>2</sup></div>
-                                    </div>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                    <div class="range-slider-one clearfix">
-                                        <label>Price Filter</label>
-                                        <div class="price-range-slider"></div>
-                                        <div class="input"><input type="text" class="price-amount" name="field-name" readonly></div>
-                                        <div class="title">US Doller</div>
-                                    </div>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                    <button type="submit" class="theme-btn btn-style-two"><span class="txt">Search Now</span></button>
-                                </div>
-
-                            </div>
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Search Home Section -->
 
 
 <!-- Property Section Two -->
@@ -579,21 +325,16 @@ if (!empty($banner)) {
 								<span class="featured">FEATURED</span>
 							</div>
 							<div class="lower-content col-lg-6 col-md-12 col-sm-12">
-								<ul class="tags">
-									<li><a href="properties-detail.html">Apartment</a>,</li>
-									<li><a href="properties-detail.html">Bar</a>,</li>
-									<li><a href="properties-detail.html">House</a></li>
-								</ul>
-								<h5><a href="properties-detail.html">Single Flat Burj Al-Arab.</a></h5>
-								<div class="lucation"><i class="la la-map-marker"></i> Orland Park, IL 785, Chicago, USA</div>
+								<h5><a href="properties-detail.html">Tent for Single/Couple.</a></h5>
+								<div class="lucation"><i class="la la-map-marker"></i> With Food</div>
 								<ul class="property-info clearfix">
 									<li><i class="flaticon-dimension"></i> 356 Sq-Ft</li>
-									<li><i class="flaticon-bed"></i> 1 Bedrooms</li>
+									<li><i class="flaticon-food"></i> 1 Bedrooms</li>
 									<li><i class="flaticon-garage-1"></i> 1 Garage</li>
 									<li><i class="flaticon-toilet"></i> 2 Bathroom</li>
 								</ul>
 								<div class="property-price clearfix">
-                                <div class="read-more"><a href="{{ route('tent.details')}}" class="theme-btn">More Detail</a></div>
+                                <div class="read-more"><a href="{{route('single-tent-details.withfood')}}" class="theme-btn">More Detail</a></div>
 									<div class="price">$ 14,95,000</div>
 								</div>
 							</div>
@@ -611,13 +352,8 @@ if (!empty($banner)) {
 								<span class="featured">FEATURED</span>
 							</div>
 							<div class="lower-content col-lg-6 col-md-12 col-sm-12">
-								<ul class="tags">
-									<li><a href="properties-detail.html">Apartment</a>,</li>
-									<li><a href="properties-detail.html">Bar</a>,</li>
-									<li><a href="properties-detail.html">House</a></li>
-								</ul>
-								<h5><a href="properties-detail.html">California New Villas.</a></h5>
-								<div class="lucation"><i class="la la-map-marker"></i> Makine Park, PM 700, Califonia</div>
+								<h5><a href="properties-detail.html">Tent for Single/Couple.</a></h5>
+								<div class="lucation"><i class="la la-map-marker"></i> Without Food</div>
 								<ul class="property-info clearfix">
 									<li><i class="flaticon-dimension"></i> 356 Sq-Ft</li>
 									<li><i class="flaticon-bed"></i> 3 Bedrooms</li>
@@ -625,7 +361,7 @@ if (!empty($banner)) {
 									<li><i class="flaticon-toilet"></i> 3 Bathroom</li>
 								</ul>
 								<div class="property-price clearfix">
-									<div class="read-more"><a href="properties-detail.html" class="theme-btn">More Detail</a></div>
+									<div class="read-more"><a href="{{ route('single-tent-details.withoutfood')}}" class="theme-btn">More Detail</a></div>
 									<div class="price">$ 10,00,000</div>
 								</div>
 							</div>
@@ -642,13 +378,8 @@ if (!empty($banner)) {
 								<span class="for">Available</span>
 							</div>
 							<div class="lower-content col-lg-6 col-md-12 col-sm-12">
-								<ul class="tags">
-									<li><a href="properties-detail.html">Apartment</a>,</li>
-									<li><a href="properties-detail.html">Bar</a>,</li>
-									<li><a href="properties-detail.html">House</a></li>
-								</ul>
-								<h5><a href="properties-detail.html">Apartment 1243, Sydney.</a></h5>
-								<div class="lucation"><i class="la la-map-marker"></i> viewport Point, 987456, Australia.</div>
+								<h5><a href="properties-detail.html">Tent for Grouped People</a></h5>
+								<div class="lucation"><i class="la la-map-marker"></i> Without Food</div>
 								<ul class="property-info clearfix">
 									<li><i class="flaticon-dimension"></i> 356 Sq-Ft</li>
 									<li><i class="flaticon-bed"></i> 2 Bedrooms</li>
@@ -656,7 +387,7 @@ if (!empty($banner)) {
 									<li><i class="flaticon-toilet"></i> 1 Bathroom</li>
 								</ul>
 								<div class="property-price clearfix">
-									<div class="read-more"><a href="properties-detail.html" class="theme-btn">More Detail</a></div>
+									<div class="read-more"><a href="{{ route('single-tent-details.groupwithoutfood')}}" class="theme-btn">More Detail</a></div>
 									<div class="price">$ 24,95,000</div>
 								</div>
 							</div>
@@ -673,13 +404,9 @@ if (!empty($banner)) {
 								<span class="for sold">Sold Done</span>
 							</div>
 							<div class="lower-content col-lg-6 col-md-12 col-sm-12">
-								<ul class="tags">
-									<li><a href="properties-detail.html">Apartment</a>,</li>
-									<li><a href="properties-detail.html">Bar</a>,</li>
-									<li><a href="properties-detail.html">House</a></li>
-								</ul>
-								<h5><a href="properties-detail.html">Commercial New Building.</a></h5>
-								<div class="lucation"><i class="la la-map-marker"></i>Gold Land Commercial Dubai</div>
+
+								<h5><a href="properties-detail.html">Tent for Grouped People.</a></h5>
+								<div class="lucation"><i class="la la-map-marker"></i>With Food</div>
 								<ul class="property-info clearfix">
 									<li><i class="flaticon-dimension"></i> 356 Sq-Ft</li>
 									<li><i class="flaticon-bed"></i> 1 Bedrooms</li>
@@ -687,7 +414,7 @@ if (!empty($banner)) {
 									<li><i class="flaticon-toilet"></i> 2 Bathroom</li>
 								</ul>
 								<div class="property-price clearfix">
-									<div class="read-more"><a href="properties-detail.html" class="theme-btn">More Detail</a></div>
+									<div class="read-more"><a href="{{ route('single-tent-details.groupwithfood')}}" class="theme-btn">More Detail</a></div>
 									<div class="price">$ 14,95,000</div>
 								</div>
 							</div>
@@ -998,3 +725,4 @@ if (!empty($banner)) {
 <!--End Newsleter Section-->
 
 @endsection
+

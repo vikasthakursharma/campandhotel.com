@@ -31,6 +31,7 @@ class ComposerStaticInit66bb8738a6b8142c60d731ebc3f449eb
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
+        '65966401fe9011225a1878c3ea034262' => __DIR__ . '/..' . '/instamojo/instamojo-php/src/Utilities.php',
         '1aff2f8abd60e952b4bdd52d4f05a132' => __DIR__ . '/../..' . '/app/helper.php',
     );
 
@@ -125,6 +126,8 @@ class ComposerStaticInit66bb8738a6b8142c60d731ebc3f449eb
         'I' => 
         array (
             'Intervention\\Image\\' => 19,
+            'Instamojo\\Exceptions\\' => 21,
+            'Instamojo\\' => 10,
             'Illuminate\\Support\\' => 19,
             'Illuminate\\' => 11,
         ),
@@ -407,6 +410,14 @@ class ComposerStaticInit66bb8738a6b8142c60d731ebc3f449eb
         array (
             0 => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image',
         ),
+        'Instamojo\\Exceptions\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/instamojo/instamojo-php/src/Exceptions',
+        ),
+        'Instamojo\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/instamojo/instamojo-php/src',
+        ),
         'Illuminate\\Support\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Macroable',
@@ -435,8 +446,8 @@ class ComposerStaticInit66bb8738a6b8142c60d731ebc3f449eb
         ),
         'Fruitcake\\Cors\\' => 
         array (
-            0 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
-            1 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
+            0 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
+            1 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
         ),
         'Faker\\' => 
         array (
@@ -523,6 +534,9 @@ class ComposerStaticInit66bb8738a6b8142c60d731ebc3f449eb
         'App\\Http\\Controllers\\Frontend\\ContactController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/ContactController.php',
         'App\\Http\\Controllers\\Frontend\\GalleryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/GalleryController.php',
         'App\\Http\\Controllers\\Frontend\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/HomeController.php',
+        'App\\Http\\Controllers\\Frontend\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/LoginController.php',
+        'App\\Http\\Controllers\\Frontend\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/RegisterController.php',
+        'App\\Http\\Controllers\\Frontend\\TentController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/TentController.php',
         'App\\Http\\Controllers\\Frontend\\TestimonialController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/TestimonialController.php',
         'App\\Http\\Controllers\\TestimonialController' => __DIR__ . '/../..' . '/app/Http/Controllers/TestimonialController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
@@ -538,6 +552,7 @@ class ComposerStaticInit66bb8738a6b8142c60d731ebc3f449eb
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Models\\Backend\\Auth' => __DIR__ . '/../..' . '/app/Models/Backend/Auth.php',
         'App\\Models\\Banner' => __DIR__ . '/../..' . '/app/Models/Banner.php',
+        'App\\Models\\Payment' => __DIR__ . '/../..' . '/app/Models/Payment.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Notifications\\NewAdminRegisterNotify' => __DIR__ . '/../..' . '/app/Notifications/NewAdminRegisterNotify.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -2577,6 +2592,13 @@ class ComposerStaticInit66bb8738a6b8142c60d731ebc3f449eb
         'Illuminate\\View\\ViewFinderInterface' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewFinderInterface.php',
         'Illuminate\\View\\ViewName' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewName.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
+        'Instamojo\\Exception\\InvalidRequestException' => __DIR__ . '/..' . '/instamojo/instamojo-php/src/Exceptions/InvalidRequestException.php',
+        'Instamojo\\Exceptions\\ActionForbiddenException' => __DIR__ . '/..' . '/instamojo/instamojo-php/src/Exceptions/ActionForbiddenException.php',
+        'Instamojo\\Exceptions\\ApiException' => __DIR__ . '/..' . '/instamojo/instamojo-php/src/Exceptions/ApiException.php',
+        'Instamojo\\Exceptions\\AuthenticationException' => __DIR__ . '/..' . '/instamojo/instamojo-php/src/Exceptions/AuthenticationException.php',
+        'Instamojo\\Exceptions\\InstamojoException' => __DIR__ . '/..' . '/instamojo/instamojo-php/src/Exceptions/InstamojoException.php',
+        'Instamojo\\Exceptions\\MissingParameterException' => __DIR__ . '/..' . '/instamojo/instamojo-php/src/Exceptions/MissingParameterException.php',
+        'Instamojo\\Instamojo' => __DIR__ . '/..' . '/instamojo/instamojo-php/src/Instamojo.php',
         'Intervention\\Image\\AbstractColor' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/AbstractColor.php',
         'Intervention\\Image\\AbstractDecoder' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/AbstractDecoder.php',
         'Intervention\\Image\\AbstractDriver' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/AbstractDriver.php',

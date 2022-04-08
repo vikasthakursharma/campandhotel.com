@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '095aacac266c6bcad323ecca6c07b19f8d561304',
+        'reference' => '65222e611051eafcbd196fc1133a581d929f37fc',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -367,6 +367,15 @@
                 0 => 'v9.4.1',
             ),
         ),
+        'instamojo/instamojo-php' => array(
+            'pretty_version' => '1.0',
+            'version' => '1.0.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../instamojo/instamojo-php',
+            'aliases' => array(),
+            'reference' => '58564617b3f8828b2057274b0f6e7384e4740d33',
+            'dev_requirement' => false,
+        ),
         'intervention/image' => array(
             'pretty_version' => '2.7.1',
             'version' => '2.7.1.0',
@@ -397,7 +406,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '095aacac266c6bcad323ecca6c07b19f8d561304',
+            'reference' => '65222e611051eafcbd196fc1133a581d929f37fc',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(
