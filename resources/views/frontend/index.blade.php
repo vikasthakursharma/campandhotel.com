@@ -335,7 +335,7 @@ if (!empty($banner)) {
 								</ul>
 								<div class="property-price clearfix">
                                 <div class="read-more"><a href="{{route('single-tent-details.withfood')}}" class="theme-btn">More Detail</a></div>
-									<div class="price">$ 14,95,000</div>
+									<div class="price"><a href="{{url('checkout?category=single_tent&food=yes')}}" class="theme-btn" style="color:white;"><b>BOOK NOW</b></a></div>
 								</div>
 							</div>
 						</div>
@@ -362,7 +362,8 @@ if (!empty($banner)) {
 								</ul>
 								<div class="property-price clearfix">
 									<div class="read-more"><a href="{{ route('single-tent-details.withoutfood')}}" class="theme-btn">More Detail</a></div>
-									<div class="price">$ 10,00,000</div>
+									<div class="price">
+                                        <a href="{{url('checkout?category=single_tent&food=no')}}" class="theme-btn" style="color:white;"><b>BOOK NOW</b></a></div>
 								</div>
 							</div>
 						</div>
@@ -379,7 +380,7 @@ if (!empty($banner)) {
 							</div>
 							<div class="lower-content col-lg-6 col-md-12 col-sm-12">
 								<h5><a href="properties-detail.html">Tent for Grouped People</a></h5>
-								<div class="lucation"><i class="la la-map-marker"></i> Without Food</div>
+								<div class="lucation"><i class="la la-map-marker"></i> With Food</div>
 								<ul class="property-info clearfix">
 									<li><i class="flaticon-dimension"></i> 356 Sq-Ft</li>
 									<li><i class="flaticon-bed"></i> 2 Bedrooms</li>
@@ -388,7 +389,8 @@ if (!empty($banner)) {
 								</ul>
 								<div class="property-price clearfix">
 									<div class="read-more"><a href="{{ route('single-tent-details.groupwithoutfood')}}" class="theme-btn">More Detail</a></div>
-									<div class="price">$ 24,95,000</div>
+									<div class="price">
+                                        <a href="{{url('checkout?category=group_tent&food=yes')}}" class="theme-btn" style="color:white;"><b>BOOK NOW</b></a></div>
 								</div>
 							</div>
 						</div>
@@ -406,7 +408,7 @@ if (!empty($banner)) {
 							<div class="lower-content col-lg-6 col-md-12 col-sm-12">
 
 								<h5><a href="properties-detail.html">Tent for Grouped People.</a></h5>
-								<div class="lucation"><i class="la la-map-marker"></i>With Food</div>
+								<div class="lucation"><i class="la la-map-marker"></i>without Food</div>
 								<ul class="property-info clearfix">
 									<li><i class="flaticon-dimension"></i> 356 Sq-Ft</li>
 									<li><i class="flaticon-bed"></i> 1 Bedrooms</li>
@@ -415,7 +417,7 @@ if (!empty($banner)) {
 								</ul>
 								<div class="property-price clearfix">
 									<div class="read-more"><a href="{{ route('single-tent-details.groupwithfood')}}" class="theme-btn">More Detail</a></div>
-									<div class="price">$ 14,95,000</div>
+									<div class="price"><a href="{{url('checkout?category=group_tent&food=no')}}" class="theme-btn" style="color:white;"><b>BOOK NOW</b></a></div>
 								</div>
 							</div>
 						</div>

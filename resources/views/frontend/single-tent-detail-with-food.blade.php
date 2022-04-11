@@ -86,7 +86,7 @@
                             </div>
                             <!--Btns Box-->
                             <div class="btns-box">
-                            <a href="{{ route('checkout')}}" class="theme-btn btn-style-two"><span class="txt">Book now</span></a>
+                            <a href="{{ url('/checkout?category=single_tent&food=yes')}}" class="theme-btn btn-style-two"><span class="txt">Book now</span></a>
                             </div>
                         </div>
                         <ul class="tags-box">
