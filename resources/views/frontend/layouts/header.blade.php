@@ -13,8 +13,8 @@
 <!--Color Themes-->
 <link id="theme-color-file" href="{{ url('frontend/css/color-themes/default-theme.css')}}" rel="stylesheet">
 
-<link rel="shortcut icon" href="{{ url('frontend/images/favicon.png')}}" type="image/x-icon">
-<link rel="icon" href="{{ url('frontend/images/favicon.png')}}" type="image/x-icon">
+<link rel="shortcut icon" href="{{ url('frontend/images/logo.png')}}" type="image/x-icon">
+<link rel="icon" href="{{ url('frontend/images/logo.png')}}" type="image/x-icon">
 
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
