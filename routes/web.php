@@ -17,6 +17,7 @@ use App\Http\Controllers\Frontend\LoginController;
 use App\Http\Controllers\Frontend\TentController;
 use App\Http\Controllers\Frontend\PayController;
 
+use App\Http\Controllers\Backend\Contact_us_queryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,6 +31,8 @@ use App\Http\Controllers\Frontend\PayController;
 //---------- site routes start ---------------------------//
 Route::get('/',[HomeController::class,'index'])->name('frontend.home');
 Route::get('/contact-us',[ContactController::class,'index'])->name('frontend.contact');
+Route::post('/contact',[ContactController::class,'contact_us_query']);
+
 Route::get('/gallery',[GalleryController::class,'index'])->name('frontend.gallery');
 Route::get('/about',[AboutController::class,'index'])->name('frontend.about');
 Route::get('/testimonial',[TestimonialController::class,'index'])->name('frontend.testinmonial');
@@ -76,6 +79,8 @@ Route::get('/admin', [AuthController::class, 'index'])->name('name.login')->midd
 Route::post('/admin/auth/login', [AuthController::class, 'login'])->name('name.login');
 Route::get('/admin/auth/logout', [AuthController::class, 'logout'])->name('backend.users');
 
+
+
 Route::get('/admin/auth/register', [AuthController::class, 'register_user'])->name('backend.register');
 
 Route::get('/markAsReadNotification/{id}', [AuthController::class, 'notificationMarkAsRead'])->name('markAsReadNotification');
@@ -98,6 +103,9 @@ Route::middleware(['admin.guard'])->group(function () {
 
     // ----------- banner view routes ---------------------------------------------//
     Route::get('/admin/banner/', [BannerController::class, 'index'])->name('name.index');
+
+
+    Route::get('/admin/contact-queries', [Contact_us_queryController::class, 'Contact_us_queries']);
 
     // --------------------- banner add, edit and delete routes ----------------------------------//
     Route::get('/admin/banner/create', [BannerController::class, 'add_banner'])->name('name.create');
