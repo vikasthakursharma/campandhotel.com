@@ -174,6 +174,8 @@
 <script src="{{ url('frontend/js/script.js')}}"></script>
 <script src="{{ url('frontend/js/color-settings.js')}}"></script>
 
+{{-- loading custom js --}}
+<script src="{{ url('frontend/js/custom.js') }}"></script>
 </body>
 
 <!-- dream-property/index.html  18 Nov 2019 05:01:32 GMT -->
