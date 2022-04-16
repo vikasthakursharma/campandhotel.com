@@ -9,21 +9,40 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 style="float:right;">Contact Queries</h4>
+                                <h4 style="float:right;">Price</h4>
+                            </div>
+                            <div class="card-header">
+                                <p class="btn btn-warning"> Search according to price</p>
 
                             </div>
-
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <div id="table-1_wrapper"
                                         class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+                                        <div class="row">
+                                            <form method="GET" action="">
+                                                <div class="col-md-6">
+                                                    <div><input type="text" class="form-control form-control-sm"
+                                                            aria-controls="table-1" name="search">
 
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="submit" name="submit" value="Search" class="btn btn-info"
+                                                        style="margin-top:10px;">
+
+                                                </div>
+
+                                            </form>
+                                        </div>
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <table class="table table-striped dataTable no-footer" id="table-1"
                                                     role="grid" aria-describedby="table-1_info">
 
-                                                    @if (count($queries) >= 1)
+                                                    @if (count($price) >= 1)
                                                         <thead>
                                                             <tr role="row">
                                                                 <th class="text-center sorting_asc" tabindex="0"
@@ -38,68 +57,40 @@
                                                                 <th class="sorting" tabindex="0"
                                                                     aria-controls="table-1" rowspan="1" colspan="1"
                                                                     aria-label="Task Name: activate to sort column ascending"
-                                                                    style="width: 147.281px;">Name</th>
-
+                                                                    style="width: 147.281px;">Food Type</th>
                                                                 <th class="sorting_disabled" rowspan="1" colspan="1"
-                                                                    aria-label="Members" style="width: 209.547px;">Email
+                                                                    aria-label="Progress" style="width: 209.547px;">Tent type
                                                                 </th>
-                                                                <th class="sorting" tabindex="0"
-                                                                    aria-controls="table-1" rowspan="1" colspan="1"
-                                                                    aria-label="Due Date: activate to sort column ascending"
-                                                                    style="width: 89.9531px;">Subject</th>
-                                                                <th class="sorting" tabindex="0"
-                                                                    aria-controls="table-1" rowspan="1" colspan="1"
-                                                                    aria-label="Status: activate to sort column ascending"
-                                                                    style="width: 107.609px;">Message</th>
+                                                                <th class="sorting_disabled" rowspan="1" colspan="1"
+                                                                    aria-label="Members" style="width: 209.547px;">Tent Price
+                                                                </th>
+
 
                                                             </tr>
                                                         </thead>
                                                         <tbody>
                                                         @else
                                                             <div class="alert alert-warning">
-                                                                <strong>Sorry!</strong> No Queries Found
+                                                                <strong>Sorry!</strong> No price data found
                                                             </div>
                                                     @endif
 
-                                                    @if (count($queries) >= 1)
-                                                        @foreach ($queries as $query)
+                                                    @if (count($price) >= 1)
+                                                        @foreach ($price as $finalprice)
                                                             <tr role="row" class="odd">
                                                                 <td class="sorting_1">
-                                                                    {{ $query->id }}
+                                                                    {{ $finalprice->id }}
                                                                 </td>
-                                                                <td> {{ $query->name }}</td>
+                                                                <td> {{ $finalprice->food_type }}</td>
+                                                                <td class="sorting_1">
+                                                                        {{ $finalprice->tent_type}}
+                                                                    </td>
 
-
-                                                                    <td> {{ $query->email }}</td>
-
-                                                                <td>{{ $query->subject }}</td>
+                                                                <td> {{ $finalprice->price}}</td>
                                                                 <td>
-                                                                        <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                                data-target="#exampleModalCenter{{$query->id}}">View
-                                                                        </button>
+
                                                                 </td>
 
-                                                                  <!-- Vertically Center -->
-                                    <div class="modal fade" id="exampleModalCenter{{$query->id}}" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                    <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalCenterTitle">{{$query->subject }}</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    </div>
-                                    <div class="modal-body">
-                                    {{$query->msg }}
-                                    </div>
-                                    <div class="modal-footer bg-whitesmoke br">
-
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    </div>
-                                    </div>
-                                    </div>
-                                    </div>
                                                             </tr>
                                                         @endforeach
                                                     @endif
@@ -108,15 +99,6 @@
                                             </div>
                                         </div>
 
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-5">
-                                                <div class="dataTables_info" id="table-1_info" role="status"
-                                                    aria-live="polite">
-
-                                                    {{ $queries->links('pagination::bootstrap-4') }}
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

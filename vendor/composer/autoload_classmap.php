@@ -11,6 +11,8 @@ return array(
     'App\\Http\\Controllers\\Backend\\AuthController' => $baseDir . '/app/Http/Controllers/Backend/AuthController.php',
     'App\\Http\\Controllers\\Backend\\BackendController' => $baseDir . '/app/Http/Controllers/Backend/BackendController.php',
     'App\\Http\\Controllers\\Backend\\BannerController' => $baseDir . '/app/Http/Controllers/Backend/BannerController.php',
+    'App\\Http\\Controllers\\Backend\\Contact_us_queryController' => $baseDir . '/app/Http/Controllers/Backend/Contact_us_queryController.php',
+    'App\\Http\\Controllers\\Backend\\PriceController' => $baseDir . '/app/Http/Controllers/Backend/PriceController.php',
     'App\\Http\\Controllers\\Backend\\ProfileController' => $baseDir . '/app/Http/Controllers/Backend/ProfileController.php',
     'App\\Http\\Controllers\\Backend\\UsersController' => $baseDir . '/app/Http/Controllers/Backend/UsersController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',

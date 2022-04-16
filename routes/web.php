@@ -16,6 +16,7 @@ use App\Http\Controllers\Frontend\RegisterController;
 use App\Http\Controllers\Frontend\LoginController;
 use App\Http\Controllers\Frontend\TentController;
 use App\Http\Controllers\Frontend\PayController;
+use App\Http\Controllers\Backend\PriceController;
 
 use App\Http\Controllers\Backend\Contact_us_queryController;
 /*
@@ -104,8 +105,21 @@ Route::middleware(['admin.guard'])->group(function () {
     // ----------- banner view routes ---------------------------------------------//
     Route::get('/admin/banner/', [BannerController::class, 'index'])->name('name.index');
 
+    //---------------add price route------------------------//
+
+    Route::get('/admin/price/add', [PriceController::class, 'index'])->name('add.price');
+
+    Route::post('/admin/price/add', [PriceController::class, 'add_price'])->name('add.price');
+
+    //----------------------------end price route-------------------------------//
+
+
+    // ----------- price view routes ---------------------------------------------//
+    Route::get('/admin/price/', [PriceController::class, 'view_price'])->name('view.price');
+
 
     Route::get('/admin/contact-queries', [Contact_us_queryController::class, 'Contact_us_queries']);
+
 
     // --------------------- banner add, edit and delete routes ----------------------------------//
     Route::get('/admin/banner/create', [BannerController::class, 'add_banner'])->name('name.create');

@@ -527,6 +527,8 @@ class ComposerStaticInit66bb8738a6b8142c60d731ebc3f449eb
         'App\\Http\\Controllers\\Backend\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/AuthController.php',
         'App\\Http\\Controllers\\Backend\\BackendController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/BackendController.php',
         'App\\Http\\Controllers\\Backend\\BannerController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/BannerController.php',
+        'App\\Http\\Controllers\\Backend\\Contact_us_queryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/Contact_us_queryController.php',
+        'App\\Http\\Controllers\\Backend\\PriceController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/PriceController.php',
         'App\\Http\\Controllers\\Backend\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/ProfileController.php',
         'App\\Http\\Controllers\\Backend\\UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/UsersController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
