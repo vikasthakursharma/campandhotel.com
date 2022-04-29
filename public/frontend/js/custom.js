@@ -1,109 +1,125 @@
 $(document).ready(function () {
+
     // person drop down in checkout page
-    $('#person').on('change', function() {
-        // get person
+    $('#person').on('change', function () {
+        $('#extra_bed').attr('disabled', false);
         let person = $(this).val();
-        
-        if(person <= 4) {
-            $('#tent').val(1, true);
+        let extraBedVal = 0;
+
+        if (person <= 2) {
+            extraBedVal = 0;
+            $('#extra_bed').attr('disabled', true);
+        }
+        else if (person > 2 && person <= 4) {
+            extraBedVal = needExtraBed(person);
+        }
+        else if (person > 4 && person <= 6) {
+            extraBedVal = 2;
+        }
+        else if (person > 6 && person <= 8) {
+            extraBedVal = needExtraBed(person);
+        }
+        else if (person > 8 && person <= 10) {
+            extraBedVal = 4;
+        }
+        else if (person > 10 && person <= 12) {
+            extraBedVal = needExtraBed(person);
+        }
+        else if (person > 12 && person <= 14) {
+            extraBedVal = 6;
+        }
+        else if (person > 14 && person <= 16) {
+            extraBedVal = needExtraBed(person);
+        }
+        else if (person > 16 && person <= 18) {
+            extraBedVal = 8;
+        }
+        else if (person > 18 && person <= 20) {
+            extraBedVal = needExtraBed(person);
+        }
+        else if (person > 20 && person <= 22) {
+            extraBedVal = 10;
+        }
+        else if (person > 22 && person <= 24) {
+            extraBedVal = needExtraBed(person);
+        }
+        else {
+            extraBedVal = 0;
         }
 
-        if(person > 4 && person <= 8) {
-            $('#tent').val(2, true);
+        $('#extra_bed option').remove();
+        for (i = 0; i <= extraBedVal; i++) {
+
+            // append to dropdown of extrabed
+            $('#extra_bed').append('<option value="' + i + '">' + i + '</option>');
         }
 
-        if(person > 8 && person <= 12) {
-            $('#tent').val(3, true);
-        }
+        let extraBed = $('#extra_bed').val();
+        let foodOption = $('#food').val();
 
-        if(person > 12 && person <= 16) {
-            $('#tent').val(4, true);
-        }
-
-        if(person > 16 && person <= 20) {
-            $('#tent').val(5, true);
-        }
-
-        if(person > 20 && person <= 24) {
-            $('#tent').val(6, true);
-        }
-
+        // calculate price 
+        calculatePrice(foodOption, person, extraBed);
     });
 
-    // tent drop down in checkout page
-    $('#tent').on('change', function() {
-        // get tent value
-        let tent = $(this).val();
-        
-        // get person value
-        let person = $('#person').val();
-
-        if(tent == 1) {
-           if(person > 4) {
-               alert("1 tent more then 4 persons not allowed");
-               $('#person').val(4, true);
-           }
-        }
-
-        if(tent == 2) {
-            if(person > 8) {
-                alert("2 tents more then 8 persons not allowed");
-                $('#person').val(8, true);
-            }
-
-            if(person <= 1) {
-                alert(person +" person cannot select "+tent+" tents");
-                $(this).val(person, true);
-            }
-        }
-
-        if(tent == 3) {
-            if(person > 12) {
-                alert("3 tents more then 12 persons not allowed");
-                $('#person').val(12, true);
-            }
-
-            if(person <= 2) {
-                alert(person +" persons cannot select "+ tent +" tents");
-                $(this).val(person, true);
-            }
-        }
-
-        if(tent == 4) {
-            if(person > 16) {
-                alert("4 tents more then 16 persons not allowed");
-                $('#person').val(16, true);
-            }
-
-            if(person <= 3) {
-                alert(person +" persons cannot select "+ tent +" tents");
-                $(this).val(person, true);
-            }
-        }
-
-        if(tent == 5) {
-            if(person > 20) {
-                alert("5 tents more then 20 persons not allowed");
-                $('#person').val(20, true);
-            }
-
-            if(person <= 4) {
-                alert(person +" persons cannot select "+ tent +" tents");
-                $(this).val(person, true);
-            }
-        }
-
-        if(tent == 6) {
-            if(person <= 5) {
-                alert(person +" persons cannot select "+tent+" tents");
-                $(this).val(person, true);
-            }
-        }
-
-    });
 
     // food drop down in checkout page
-    $('#food').on('change', function() {
-        alert("hii food change worked");
+    $('#food').on('change', function () {
+        let person = $('#person').val();
+        let extraBed = $('#extra_bed').val();
+        let foodOption = $(this).val();
+
+        if (person <= 2) {
+            $('#extra_bed').attr('disabled', true);
+        } else {
+            $('#extra_bed').attr('disabled', false);
+        }
+
+        // calcute price
+        calculatePrice(foodOption, person, extraBed);
     });
+
+    // extra bed drop down in checkout page
+    $('#extra_bed').on('change', function() {
+        
+        let person = $('#person').val();
+        let extraBed = $(this).val();
+        let foodOption = $('#food').val();
+
+        // calcute price
+        calculatePrice(foodOption, person, extraBed);
+    });
+
+    function needExtraBed(person) {
+        let result = person / 2;
+        if(!Number.isInteger(result)) {
+            result = Math.round(result) - 1;
+        }
+        return result;
+    }
+
+    function calculatePrice(foodOption = "with_food", person = 2, extraBed = 0) {
+        let perPersonPrice = 1000;
+        let tentPrice;
+        let extraBedPrice = extraBed * 500;
+        let price;
+
+        if (foodOption == "with_food") {
+            perPersonPrice = 1500;
+            person = person - extraBed;
+            price = perPersonPrice * person;
+            tentPrice = price + extraBedPrice;
+        } else {
+            price = perPersonPrice * person;
+            tentPrice = price - extraBedPrice;
+        }
+
+        $('#tentPrice').val(tentPrice);
+        $('.tentPrice').text(separator(tentPrice));
+    }
+
+    function separator(numb) {
+        var str = numb.toString().split(".");
+        str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return str.join(".");
+    }
 });

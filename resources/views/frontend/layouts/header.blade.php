@@ -107,7 +107,7 @@
                                 <div class="search-box-btn"><span class="icon flaticon-search"></span></div>
                                 <!-- Button Box -->
                                 <div class="btn-box">
-                                    <a href="contact.html" class="theme-btn btn-style-one"><span
+                                    <a href="{{url('/checkout')}}" class="theme-btn btn-style-one"><span
                                             class="txt">Book now</span></a>
                                 </div>
                             </div>
