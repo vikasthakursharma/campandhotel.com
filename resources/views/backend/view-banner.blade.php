@@ -116,7 +116,7 @@
                                                                                     <li class="team-member team-member-sm" style="width: 80px;">
                                                                                         <img class="img img-thumbnail"
                                                                                             src="{{ asset('storage/images/' . $imgSrc) }}"
-                                                                                            alt="{{ $imgSrc }}"
+                                                                                            alt="{{ substr($imgSrc,0,5).'...' }}"
                                                                                             data-toggle="tooltip" title=""
                                                                                             data-original-title="{{ $imgSrc }}" style="border: 0px; border-radius: 10px;height: 60px;">
                                                                                     </li>

@@ -102,19 +102,28 @@ $(document).ready(function () {
         let tentPrice;
         let extraBedPrice = extraBed * 500;
         let price;
+        let foodText = foodOption;
 
         if (foodOption == "with_food") {
             perPersonPrice = 1500;
             person = person - extraBed;
             price = perPersonPrice * person;
             tentPrice = price + extraBedPrice;
+            foodText = "With Food";
         } else {
             price = perPersonPrice * person;
             tentPrice = price - extraBedPrice;
+            foodText = "Without Food";
         }
 
         $('#tentPrice').val(tentPrice);
         $('.tentPrice').text(separator(tentPrice));
+
+        // change price box values
+        $('.person').text(person);
+        $('.extra_bed').text(extraBed);
+        $('.food').text(foodText);
+
     }
 
     function separator(numb) {
