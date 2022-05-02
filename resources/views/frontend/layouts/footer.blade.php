@@ -13,7 +13,7 @@
                         <div class="footer-column col-lg-7 col-md-6 col-sm-12">
                             <div class="footer-widget logo-widget">
                                 <div class="logo">
-                                    <a href="index-2.html"><img src="images/footer-logo.png" alt="" /></a>
+                                    <a href="index-2.html"><img src="{{asset('frontend/images/logo.png')}}" alt="" /></a>
                                 </div>
                                 <div class="text">Lorem ipsum dolor sit amet, consectetuer a the adipiscing elit. Aenean commodo ligulai dolor. Aenean massa Lorem ipsum dolor sit amet, consectetuer a the adipiscing elit. Aenean commodo ligulai dolor.</div>
                                 <ul class="social-icons">
@@ -63,7 +63,7 @@
                                 <div class="news-widget-block">
                                     <div class="widget-inner">
                                         <div class="image">
-                                            <img src="images/resource/news-image-1.jpg" alt="" />
+                                            <img src="{{asset('frontend/images/resource/news-image-1.jpg')}}" alt="" />
                                         </div>
                                         <h3><a href="blog-detail.html">New Modern Luxery Building</a></h3>
                                         <div class="post-date">July 11, 2019</div>
@@ -74,7 +74,7 @@
                                 <div class="news-widget-block">
                                     <div class="widget-inner">
                                         <div class="image">
-                                            <img src="images/resource/news-image-2.jpg" alt="" />
+                                            <img src="{{asset('frontend/images/resource/news-image-2.jpg')}}" alt="" />
                                         </div>
                                         <h3><a href="blog-detail.html">Medium Level our Services</a></h3>
                                         <div class="post-date">July 11, 2019</div>

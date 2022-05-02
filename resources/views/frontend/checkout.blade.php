@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 @section('main-section')
     <!-- Page Title -->
-    <section class="page-title" style="background-image:url(images/background/2.jpg);">
+    <section class="page-title" style="background-image:url('{{asset('frontend/images/background/2.jpg')}}');">
         <div class="auto-container">
             <div class="inner-box">
                 <h1>Checkout</h1>
@@ -23,21 +23,22 @@
                         <thead class="cart-header">
                             <div class="sec-title">
                                 <h1>Your Selection.</h1>
-
+                                <div class="alert alert-danger"><b>we allow only 2 persons in 1 tent.<br/> 
+                                    if you want to adjust in 1 tent then we allow max 4 persons with 2 extra bed.</b>
+                                </div>
                             </div>
                             <tr>
                                 <th>Preview</th>
                                 <th class="prod-column">product</th>
 
                                 <th>Person</th>
-                                <th>Tent</th>
+                                <th class="extra_bedding">Extra Bedding</th>
                                 <th>Food</th>
                                 <th class="price">Price</th>
                             </tr>
                         </thead>
 
                         <tbody>
-
                             @php
                                 $fullUrl = \URL::full();
                                 $current_url = url()->current();
@@ -55,35 +56,45 @@
                                 $groupTentWithoutFood = $current_url . '?category=group_tent&food=no';
                                 
                                 $person = 1;
-                                $food = "";
-                                $tentTitle = "Single Tent With Food";
+                                $food = "with_food";
+                                $tentTitle = "Camp Booking";
+                                $extraBed = false;
+                                $extraBedCount = 0;
+                                $tentPrice = 1500;
+                                $price = 1000;
 
                                 if ($fullUrl == $singleTentWithFood) {
                                     $food = "with_food";
                                     $person = 2;
-                                    $tentTitle = "Single Tent With Food";
+                                    $extraBed = false;
+                                    $extraBedCount = 0;
+                                    $tentPrice = $person * $tentPrice;
                                 }
                                 
                                 if ($fullUrl == $singleTentWithoutFood) {
                                     $food = "without_food";
                                     $person = 2;
-                                    $tentTitle = "Single Tent Without Food";
+                                    $extraBed = false;
+                                    $extraBedCount = 0;
+                                    $tentPrice = $person * $price;
                                 }
                                 
                                 if ($fullUrl == $groupTentWithFood) {
                                     $food = "with_food";
-                                    $person = 4;
-                                    $tentTitle = "Group Tent With Food";
+                                    $person = 10;
+                                    $extraBed = true;
+                                    $extraBedCount = 4;
+                                    $tentPrice = $person * $tentPrice;
                                 }
                                 
                                 if ($fullUrl == $groupTentWithoutFood) {
                                     $food = "without_food";
-                                    $person = 4;
-                                    $tentTitle = "Group Tent Without Food";
+                                    $person = 10;
+                                    $extraBed = true;
+                                    $extraBedCount = 4;
+                                    $tentPrice = $person * $price;
                                 }
                             @endphp
-
-
                             <tr>
                                 <td class="prod-column">
                                     <div class="column-box">
@@ -94,11 +105,9 @@
                                         </figure>
                                     </div>
                                 </td>
-
-                                <td>
-                                    <h4 class="prod-title">{{$tentTitle}}</h4>
+                                <td class="tent_title">
+                                    <h3>{{$tentTitle}}</h3>
                                 </td>
-
                                 <td class="person">
                                     <div class="item-quantity">
                                         <select name="sort-by" id="person"
@@ -109,10 +118,12 @@
                                         </select>
                                     </div>
                                 </td>
-                                <td class="tent">
-                                    <select name="sort-by" id="tent" class="form-control single_tent_with_food_tent">
-                                        @for ($i = 1; $i <= 6; $i++)
-                                            <option value="{{ $i }}" @if ($i == 1) selected @endif>{{ $i }}</option>
+                                <td class="extra_bedding">
+                                    <select name="sort-by" id="extra_bed" class="form-control single_tent_with_food_tent" @if (!$extraBed)
+                                        disabled
+                                    @endif>
+                                        @for ($i = 0; $i <= $extraBedCount; $i++)
+                                            <option value="{{ $i }}" >{{ $i }}</option>
                                         @endfor
                                     </select>
 
@@ -124,9 +135,8 @@
                                     </select>
                                 </td>
                                 <td class="sub-total">
-                                    <select name="sort-by" class="single_tent_with_food_price">
-                                        <option value="2500" readonly="">2500</option>
-                                    </select>
+                                    <input type="text" name="tent_price" id="tentPrice" value="{{$tentPrice}}" style="display: none;"/>
+                                    <b class="tentPrice" style="color: #242424;">{{number_format($tentPrice)}}</b>
                                 </td>
                             </tr>
 
