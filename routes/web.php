@@ -96,6 +96,9 @@ Route::get('/not-access', function () {
     return view('backend.layouts.errors-404');
 });
 
+Route::get('/testhost', function() {
+    echo "working testhost";
+});
 Route::middleware(['active.login'])->group(function () {
     // ----- no access without login -----------//
 Route::middleware(['admin.guard'])->group(function () {
