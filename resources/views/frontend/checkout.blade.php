@@ -32,7 +32,7 @@
                                 <th class="prod-column">product</th>
 
                                 <th>Person</th>
-                                <th class="extra_bedding">Extra Bedding</th>
+                                <th class="extra_bedding">Extra Bed</th>
                                 <th>Food</th>
                                 <th class="price">Price</th>
                             </tr>
@@ -57,14 +57,17 @@
                                 
                                 $person = 1;
                                 $food = "with_food";
+                                $foodText = "With Food";
                                 $tentTitle = "Camp Booking";
                                 $extraBed = false;
                                 $extraBedCount = 0;
                                 $tentPrice = 1500;
                                 $price = 1000;
+                                
 
                                 if ($fullUrl == $singleTentWithFood) {
                                     $food = "with_food";
+                                    $foodText = "With Food";
                                     $person = 2;
                                     $extraBed = false;
                                     $extraBedCount = 0;
@@ -73,6 +76,7 @@
                                 
                                 if ($fullUrl == $singleTentWithoutFood) {
                                     $food = "without_food";
+                                    $foodText = "Without Food";
                                     $person = 2;
                                     $extraBed = false;
                                     $extraBedCount = 0;
@@ -81,6 +85,7 @@
                                 
                                 if ($fullUrl == $groupTentWithFood) {
                                     $food = "with_food";
+                                    $foodText = "With Food";
                                     $person = 10;
                                     $extraBed = true;
                                     $extraBedCount = 4;
@@ -89,6 +94,7 @@
                                 
                                 if ($fullUrl == $groupTentWithoutFood) {
                                     $food = "without_food";
+                                    $foodText = "Without Food";
                                     $person = 10;
                                     $extraBed = true;
                                     $extraBedCount = 4;
@@ -108,7 +114,7 @@
                                 <td class="tent_title">
                                     <h3>{{$tentTitle}}</h3>
                                 </td>
-                                <td class="person">
+                                <td class="person_td">
                                     <div class="item-quantity">
                                         <select name="sort-by" id="person"
                                             class="form-control single_tent_with_food_person">
@@ -118,7 +124,7 @@
                                         </select>
                                     </div>
                                 </td>
-                                <td class="extra_bedding">
+                                <td class="extra_bedding_td">
                                     <select name="sort-by" id="extra_bed" class="form-control single_tent_with_food_tent" @if (!$extraBed)
                                         disabled
                                     @endif>
@@ -128,14 +134,13 @@
                                     </select>
 
                                 </td>
-                                <td class="food">
+                                <td class="food_td">
                                     <select name="food" id="food" class="form-control">
-                                        <option value="with_food" @if ($food == "with_food") selected @endif>With Food</option>
-                                        <option value="without_food" @if ($food == "without_food") selected @endif>Without Food</option>
+                                        <option value="with_food" @if ($food == "with_food") selected @endif>{{$foodText}}</option>
+                                        <option value="without_food" @if ($food == "without_food") selected @endif>{{$foodText}}</option>
                                     </select>
                                 </td>
                                 <td class="sub-total">
-                                    <input type="text" name="tent_price" id="tentPrice" value="{{$tentPrice}}" style="display: none;"/>
                                     <b class="tentPrice" style="color: #242424;">{{number_format($tentPrice)}}</b>
                                 </td>
                             </tr>
@@ -192,7 +197,7 @@
 
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                             <div class="field-label">Check In <sup>*</sup></div>
-                                            <input type="date" name="check_in" id="check_in"
+                                            <input type="date" class="form-control" name="check_in" id="check_in"
                                                 value="{{ old('arrival_time') }}">
 
                                             @if ($errors->has('arrival_time'))
@@ -202,7 +207,7 @@
                                         <!--Form Group-->
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                             <div class="field-label">Checkout <sup>*</sup></div>
-                                            <input type="date" name="checkout" id="check_out"
+                                            <input type="date" class="form-control" name="checkout" id="check_out"
                                                 value="{{ old('arrival_time') }}">
 
                                             @if ($errors->has('arrival_time'))
@@ -222,7 +227,7 @@
                                         <!--Form Group-->
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                             <div class="field-label">Arrival Time <sup>*</sup></div>
-                                            <input type="time" name="arrival_time" value="{{ old('arrival_time') }}">
+                                            <input type="time" class="form-control" name="arrival_time" value="{{ old('arrival_time') }}">
 
                                             @if ($errors->has('arrival_time'))
                                                 <span class="text-danger">{{ $errors->first('arrival_time') }}</span>
@@ -248,10 +253,13 @@
                                     <ul class="order-list">
                                         <li>Prodcut<span>
                                             </span></li>
-                                        <li>Villa ID:954<span>$65,00,000</span></li>
-                                        <li>Subtotal<span class="dark">$65,00,000</span></li>
-                                        <li>Shipping And Handling<span>Free Shipping</span></li>
-                                        <li class="total">Total<span class="dark">$65,00,000</span></li>
+                                        <li>Person<span class="person">{{$person}}</span></li>
+                                        <li>Extra Bed<span class="extra_bed">{{$extraBedCount}}</span></li>
+                                        <li>Food<span class="food">{{$foodText}}</span></li>
+                                        <li>Price<span class="tentPrice"><i class="fab fa fa-inr-f"></i>{{number_format($tentPrice)}}</span></li>
+                                        <li>Subtotal<span class="dark tentPrice">{{number_format($tentPrice)}}</span></li>
+                                        <li class="total">Total<span class="dark tentPrice">{{number_format($tentPrice)}}</span></li>
+                                        <input type="text" name="tent_price" id="tentPrice" value="{{$tentPrice}}" style="display: none;"/>
                                     </ul>
 
 

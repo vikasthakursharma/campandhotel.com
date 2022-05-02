@@ -33,7 +33,7 @@ class PayController extends Controller
                 "X-Auth-Token:test_67d1f1a9751a1c44afcf60dac0d"));
         $payload = Array(
             'purpose' => 'Tent Booking',
-            'amount' => 10,
+            'amount' => $request->tent_price,
             'phone' => $request->phone,
             'name' => $request->name,
             'redirect_url' => 'http://localhost:8000/payment-success',
@@ -85,7 +85,7 @@ class PayController extends Controller
                 $input['name'] = $data->payment->buyer_name;
                 $input['email'] = $data->payment->buyer_email;
                 $input['mobile'] = $data->payment->buyer_phone;
-                $input['amount'] = $data->payment->amount;
+                $input['amount'] = $data->payment->tent_price;
                 Payment::create($input);
 
                 \Session::put('success','Your payment has been pay successfully, Enjoy!!');
